@@ -13,7 +13,7 @@ public class SelectedTiles : MonoBehaviour
     private List<Tile> selectedTiles = new List<Tile>();
     private List<Tile> neighborTiles = new List<Tile>();
     
-    private bool isDoneSelect;
+    private bool isDoneSelect, isDonePop;
     private int width, length;
       
     private void Awake()
@@ -24,13 +24,14 @@ public class SelectedTiles : MonoBehaviour
     private void Start()
     {
         isDoneSelect = true;
+        isDonePop = true;
         width = GenerateTiles.Instance.GetWidth();
         length = GenerateTiles.Instance.GetLength();
     }
 
     public void SelectTile(Tile tile)
     {
-        if (!isDoneSelect) return;
+        if (!isDoneSelect || !isDonePop) return;
 
         if(!selectedTiles.Contains(tile) && selectedTiles.Count < 2)
         {
@@ -62,27 +63,24 @@ public class SelectedTiles : MonoBehaviour
             yield return sequence.Play().WaitForCompletion();
 
             Change(ref tile1.itemInfo, ref tile2.itemInfo);
-            tile1.GetComponent<Image>().sprite = tile1.itemInfo.sprite;
-            tile2.GetComponent<Image>().sprite = tile2.itemInfo.sprite;
 
             if (CanPop())
-            {                             
+            {
+                tile1.GetComponent<Image>().sprite = tile1.itemInfo.sprite;
+                tile2.GetComponent<Image>().sprite = tile2.itemInfo.sprite;
                 Debug.Log("Pop!");
                 StartCoroutine(Pop());
             } else
             {
+                Change(ref tile1.itemInfo, ref tile2.itemInfo);
                 tile1Transform = tile1.GetComponent<RectTransform>();
                 tile2Transform = tile2.GetComponent<RectTransform>();
 
                 Sequence sequence2 = DOTween.Sequence();
                 sequence2.Join(tile1Transform.DOMove(tile2Transform.position, 0.5f))
                     .Join(tile2Transform.DOMove(tile1Transform.position, 0.5f));
-                yield return sequence2.Play().WaitForCompletion();
-                Change(ref tile1.itemInfo, ref tile2.itemInfo);
-                tile1.GetComponent<Image>().sprite = tile1.itemInfo.sprite;
-                tile2.GetComponent<Image>().sprite = tile2.itemInfo.sprite;
+                yield return sequence2.Play().WaitForCompletion();             
             }
-
             isDoneSelect = true;
         }
         else
@@ -106,7 +104,8 @@ public class SelectedTiles : MonoBehaviour
     }    
 
     IEnumerator Pop()
-    {           
+    {
+        isDonePop = false;
         for (int x = 1; x <= width; x++)
         {
             for(int y = 1; y <= length; y++)
@@ -120,7 +119,7 @@ public class SelectedTiles : MonoBehaviour
                 foreach (Tile connectedTile in connectedTiles)
                 {
                     deflateSequence.Join(connectedTile.GetComponent<RectTransform>()
-                        .DOScale(Vector3.zero, 1f));
+                        .DOScale(Vector3.zero, 0.3f));
                 }
                 yield return deflateSequence.Play().WaitForCompletion();
                 
@@ -133,11 +132,12 @@ public class SelectedTiles : MonoBehaviour
                     connectedTile.GetComponent<Image>().sprite = connectedTile.itemInfo.sprite;
 
                     inflateSequence.Join(connectedTile.GetComponent<RectTransform>()
-                        .DOScale(Vector3.one, 0.5f));
+                        .DOScale(Vector3.one, 0.3f));
                 }
                 yield return inflateSequence.Play().WaitForCompletion();
             }    
-        }             
+        }
+        isDonePop = true;
     }    
 
     private bool IsNeighbour(Tile tile1, Tile tile2)
