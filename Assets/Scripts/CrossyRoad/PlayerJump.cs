@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private float jumpForce, normalForce;
+    [SerializeField] private float jumpForce;
     private bool isGround;
 
     private Rigidbody playerRigidbody;
@@ -23,9 +23,8 @@ public class PlayerJump : MonoBehaviour
     {
         if (!isGround) return;
         Vector3 currentPos = transform.position;
-        newPos = GenerateRoad.Instance.roads[i].transform.position - new Vector3(0, 0, 0.2f);
-        transform.position = Vector3.MoveTowards(currentPos, newPos, 0.5f);
-        
+        newPos = GenerateRoad.Instance.roads[i].transform.position;
+        transform.position = Vector3.MoveTowards(currentPos, newPos, 0.5f);       
     }
 
     public void Jump()
