@@ -8,13 +8,11 @@ public class PlayerJump : MonoBehaviour
     private bool isGround;
 
     private Rigidbody playerRigidbody;
-    int i;
 
     Vector3 currentPos, newPos;
 
     private void Awake()
     {
-        i = 0;
         isGround = false;
         playerRigidbody = GetComponent<Rigidbody>();
     }
@@ -22,15 +20,14 @@ public class PlayerJump : MonoBehaviour
     private void Update()
     {
         if (!isGround) return;
-        Vector3 currentPos = transform.position;
-        newPos = GenerateRoad.Instance.roads[i].transform.position;
+        Vector3 currentPos = transform.position;      
         transform.position = Vector3.MoveTowards(currentPos, newPos, 0.5f);       
     }
 
     public void Jump()
     {
         if (isGround) return;
-        i++;
+        newPos = transform.position + new Vector3(0, 0, 1f);
         StartCoroutine(JumpTime());
     }
 
