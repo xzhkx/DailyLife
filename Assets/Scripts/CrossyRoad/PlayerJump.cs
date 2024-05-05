@@ -14,14 +14,14 @@ public class PlayerJump : MonoBehaviour
     private void Awake()
     {
         isGround = false;
-        playerRigidbody = GetComponent<Rigidbody>();
+        playerRigidbody = GetComponentInChildren<Rigidbody>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isGround) return;
         Vector3 currentPos = transform.position;      
-        transform.position = Vector3.MoveTowards(currentPos, newPos, 0.5f);       
+        transform.position = Vector3.MoveTowards(currentPos, newPos, 0.3f);       
     }
 
     public void Jump()
