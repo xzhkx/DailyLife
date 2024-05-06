@@ -6,16 +6,10 @@ public class VehicleMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody carRigidbody;
-    private Vector3 originalPos;
 
     private void Awake()
     {
-        carRigidbody = GetComponent<Rigidbody>(); 
-    }
-
-    private void Start()
-    {
-        originalPos = new Vector3(-4.5f, 0.25f, transform.parent.position.z);     
+        carRigidbody = GetComponent<Rigidbody>();        
     }
 
     private void FixedUpdate()
@@ -26,10 +20,9 @@ public class VehicleMovement : MonoBehaviour
 
     private void Movement()
     {      
-        if(transform.position.x > 6)
+        if(transform.position.x > 6.5f)
         {
-            transform.position = originalPos;
+            transform.position = new Vector3(-9f, 0.25f, transform.parent.position.z); 
         }    
     }
-
 }

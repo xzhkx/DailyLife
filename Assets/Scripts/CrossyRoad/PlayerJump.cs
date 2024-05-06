@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
+    [SerializeField] private GameObject roadParent;
     private bool isGround;
 
     private Rigidbody playerRigidbody;
 
-    Vector3 currentPos, newPos;
+    private Vector3 newPos, currentPos;
 
-    private void Awake()
+    private void Start()
     {
         isGround = false;
         playerRigidbody = GetComponentInChildren<Rigidbody>();
@@ -20,21 +21,21 @@ public class PlayerJump : MonoBehaviour
     private void FixedUpdate()
     {
         if (!isGround) return;
-        Vector3 currentPos = transform.position;      
-        transform.position = Vector3.MoveTowards(currentPos, newPos, 0.3f);       
+        roadParent.transform.position = Vector3.MoveTowards(roadParent.transform.position, newPos, 0.1f);
     }
 
     public void Jump()
     {
         if (isGround) return;
-        newPos = transform.position + new Vector3(0, 0, 1f);
+        newPos = roadParent.transform.position + new Vector3(0, 0, -1f);
+        playerRigidbody.AddForce(Vector3.up * jumpForce);
         StartCoroutine(JumpTime());
     }
 
     IEnumerator JumpTime()
     {
         isGround = true;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         isGround = false;
     }    
 }
