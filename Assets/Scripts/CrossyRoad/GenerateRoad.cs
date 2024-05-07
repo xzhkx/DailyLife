@@ -15,7 +15,7 @@ public class GenerateRoad : MonoBehaviour
 
     private void Awake()
     {
-        index = -4;
+        index = -3;
         Instance = this;
         
         for(int i = 0; i < roadAmount; i++)
