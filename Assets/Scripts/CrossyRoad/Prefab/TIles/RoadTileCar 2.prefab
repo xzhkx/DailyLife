@@ -1717,7 +1717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2818226212524046488}
   - component: {fileID: 6402450651918779030}
-  - component: {fileID: 5518994259708095349}
+  - component: {fileID: 233630492050393604}
   m_Layer: 0
   m_Name: delivery-flat
   m_TagString: Untagged
@@ -1760,7 +1760,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 0
---- !u!114 &5518994259708095349
+--- !u!114 &233630492050393604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2392,7 +2392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7789224256885453057}
   - component: {fileID: 7121932445081602063}
-  - component: {fileID: 3245915772448480482}
+  - component: {fileID: 4561728062139542822}
   m_Layer: 0
   m_Name: truck-flat
   m_TagString: Untagged
@@ -2435,7 +2435,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &3245915772448480482
+--- !u!114 &4561728062139542822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

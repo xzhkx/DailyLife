@@ -23,17 +23,24 @@ public class GenerateRoad : MonoBehaviour
             Generate(grassTile, 4);
             Generate(roadTile, 3);
             Generate(waterTile, 4);
-            Generate(grassTile, Random.Range(1, grassTile.Count));
+            Generate(grassTile, 1);
             Generate(roadTile, 4);
-            Generate(grassTile, 2);
+            Generate(grassTile, 1);
         }    
     }
 
     private void Generate(List<GameObject> prefabs, int amount)
     {
+        int k = 0;
         for (int i = 0; i < amount; i++)
         {
-            GameObject prefab = prefabs[i];
+            GameObject prefab = prefabs[k];
+            k++;
+            if (k == prefabs.Count)
+            {
+                k = 0;
+            }
+
             GameObject road = Instantiate(prefab, roadParent.transform);
             road.transform.position = new Vector3(0, 0, index);
             index++;
