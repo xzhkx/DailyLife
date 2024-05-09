@@ -14,7 +14,7 @@ public class VehicleMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        carRigidbody.velocity = Vector3.right * speed;
+        transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
         Movement();
     }
 

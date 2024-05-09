@@ -415,7 +415,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7952280218825710490}
   - component: {fileID: 6027306257965120178}
-  - component: {fileID: 6549170352390230940}
   - component: {fileID: 3767505988175050969}
   m_Layer: 0
   m_Name: car1
@@ -457,22 +456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
---- !u!54 &6549170352390230940
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7284568090623901984}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 124
-  m_CollisionDetection: 0
 --- !u!65 &3767505988175050969
 BoxCollider:
   m_ObjectHideFlags: 0

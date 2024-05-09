@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftVehicleMovement : MonoBehaviour
+public class WoodPadMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Rigidbody carRigidbody;
+    private Rigidbody woodRigidbody;
 
     private void Awake()
     {
-        carRigidbody = GetComponent<Rigidbody>();
+        woodRigidbody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
+        woodRigidbody.velocity = Vector3.forward * speed;
         Movement();
     }
 
