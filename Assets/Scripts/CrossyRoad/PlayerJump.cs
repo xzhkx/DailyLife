@@ -37,8 +37,5 @@ public class PlayerJump : MonoBehaviour
         isGround = true;
         yield return new WaitForSeconds(0.5f);
         isGround = false;
-    }
-
-    
-
+    }   
 }

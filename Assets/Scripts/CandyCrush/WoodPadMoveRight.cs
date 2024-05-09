@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodPadMovement : MonoBehaviour
+public class WoodPadMoveRight : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody woodRigidbody;
@@ -14,15 +14,15 @@ public class WoodPadMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        woodRigidbody.velocity = Vector3.left * speed;
+        woodRigidbody.velocity = Vector3.right * speed;
         Movement();
     }
 
     private void Movement()
     {
-        if (transform.position.x < -6.5f)
+        if (transform.position.x > 6.5f)
         {
-            transform.position = new Vector3(8f, 0.25f, transform.parent.position.z);
+            transform.position = new Vector3(-8f, 0.25f, transform.parent.position.z);
         }
     }
 }

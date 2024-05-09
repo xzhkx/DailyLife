@@ -14,7 +14,7 @@ public class LeftVehicleMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
+        transform.Translate(Vector3.back * speed * Time.fixedDeltaTime);
         Movement();
     }
 
