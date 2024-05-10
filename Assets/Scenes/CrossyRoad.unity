@@ -169,7 +169,6 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
 --- !u!114 &10348410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +276,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456865324}
-  m_LocalRotation: {x: 0.45988476, y: -0.049373917, z: 0.031290594, w: 0.8860526}
+  m_LocalRotation: {x: 0.45988473, y: -0.049373988, z: 0.031290635, w: 0.88605255}
   m_LocalPosition: {x: 0.43, y: 9.79, z: -4.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -413,7 +412,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525141272}
-  m_LocalRotation: {x: 0.46029812, y: -0.045358837, z: 0.023557235, w: 0.8862919}
+  m_LocalRotation: {x: 0.4602981, y: -0.045358907, z: 0.023557276, w: 0.88629186}
   m_LocalPosition: {x: 0.43, y: 9.79, z: -4.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1208,6 +1207,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1948166582}
   - component: {fileID: 1948166581}
+  - component: {fileID: 1948166584}
+  - component: {fileID: 1948166583}
   m_Layer: 0
   m_Name: GenerateRoad
   m_TagString: Untagged
@@ -1259,6 +1260,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1948166583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948166580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889747e8047693b48b244dfb977f5e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1948166584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948166580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc4ae61a641f084f990f2ea1828fc0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumDistance: 1
+  maximumTime: 1
+  directionThreshold: 0.9
 --- !u!4 &543450653081794790
 Transform:
   m_ObjectHideFlags: 0
