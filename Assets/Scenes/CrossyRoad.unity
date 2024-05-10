@@ -277,7 +277,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456865324}
-  m_LocalRotation: {x: 0.45988473, y: -0.049373988, z: 0.031290635, w: 0.88605255}
+  m_LocalRotation: {x: 0.45988476, y: -0.049373917, z: 0.031290594, w: 0.8860526}
   m_LocalPosition: {x: 0.43, y: 9.79, z: -4.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -413,7 +413,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525141272}
-  m_LocalRotation: {x: 0.4602981, y: -0.045358907, z: 0.023557276, w: 0.88629186}
+  m_LocalRotation: {x: 0.46029812, y: -0.045358837, z: 0.023557235, w: 0.8862919}
   m_LocalPosition: {x: 0.43, y: 9.79, z: -4.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   - {fileID: 6046190683312537496, guid: d05f5252aaf90ae4abe01087b7f02e84, type: 3}
   - {fileID: 7111996509038865488, guid: 24ae5039bbd98ed4bb02696e91fbb2da, type: 3}
   roadParent: {fileID: 1190485322}
-  roadAmount: 3
+  roadAmount: 2
 --- !u!4 &1948166582
 Transform:
   m_ObjectHideFlags: 0
