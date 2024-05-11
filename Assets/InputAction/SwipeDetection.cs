@@ -10,7 +10,8 @@ public class SwipeDetection : MonoBehaviour
     private float maximumTime = 1f;
     [SerializeField, Range(0, 1)]
     private float directionThreshold = 0.9f;
-
+    [SerializeField] private PlayerJump playerJump;
+   
     private InputManager inputManager;
 
     private Vector3 startPosition, endPosition;
@@ -42,11 +43,14 @@ public class SwipeDetection : MonoBehaviour
             Debug.Log("Detect");
             Debug.DrawLine(startPosition, endPosition, Color.red, 5f);
             Vector3 direction = endPosition - startPosition;
-            SwipeDirection(direction);
+
+            playerJump.Jump(SwipeDirection(direction));
         }
+
+        else playerJump.Jump(Vector3.forward);
     }
 
-    private void SwipeDirection(Vector3 direction)
+    private Vector3 SwipeDirection(Vector3 direction)
     {
         float dotUp = Vector3.Dot(Vector3.up, direction);
         float dotDown = Vector3.Dot(Vector3.down, direction);
@@ -57,19 +61,25 @@ public class SwipeDetection : MonoBehaviour
         if (dotUp > directionThreshold && dotUp > dotRight && dotUp > dotLeft)
         {
             Debug.Log("Up");
+            return Vector3.forward;
         }
-        else if (dotDown > directionThreshold&& dotDown > dotLeft && dotDown > dotRight)
+        else if (dotDown > directionThreshold && dotDown > dotLeft && dotDown > dotRight)
         {
             Debug.Log("Down");
+            return Vector3.back;
         }
         else if (dotLeft > directionThreshold)
         {
             Debug.Log("Left");
+            return Vector3.left;
         }
         else if (dotRight > directionThreshold)
         {
             Debug.Log("Right");
+            return Vector3.right;
         }
+
+        else return Vector3.forward;
     }
 
     private void OnEnable()

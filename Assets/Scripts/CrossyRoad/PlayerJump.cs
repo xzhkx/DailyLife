@@ -21,13 +21,13 @@ public class PlayerJump : MonoBehaviour
     private void FixedUpdate()
     {
         if (!isGround) return;
-        roadParent.transform.position = Vector3.MoveTowards(roadParent.transform.position, newPos, 0.1f);
+         roadParent.transform.position = Vector3.MoveTowards(roadParent.transform.position, newPos, 0.1f);
     }
 
-    public void Jump()
+    public void Jump(Vector3 direction)
     {
         if (isGround) return;
-        newPos = roadParent.transform.position + new Vector3(0, 0, -1f);
+        newPos = roadParent.transform.position + (-1) * direction;
         playerRigidbody.AddForce(Vector3.up * jumpForce);
         StartCoroutine(JumpTime());
     }
@@ -35,7 +35,7 @@ public class PlayerJump : MonoBehaviour
     IEnumerator JumpTime()
     {
         isGround = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         isGround = false;
     }   
 }
