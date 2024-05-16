@@ -36,4 +36,12 @@ public class DataAccess : MonoBehaviour
         var results = await userInfos.FindAsync(c => true);
         return results.ToList();
     }
+
+    public async Task<UserInfo> GetUser(string name)
+    {
+        var filter = Builders<UserInfo>.Filter.Eq(n => n.Username, name);
+        var results = await ConnectToMongo<UserInfo>(userCollection).FindAsync(filter);
+        return await results.FirstAsync();
+    }    
 }
+
