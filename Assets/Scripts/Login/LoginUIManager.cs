@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoginUIManager : MonoBehaviour
 {
+    public static LoginUIManager Instance;
+
     [SerializeField]
     private TMP_Text LoginStateText;
     [SerializeField]
@@ -16,35 +19,66 @@ public class LoginUIManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         loginButton.onClick.AddListener(Login);
         registerButton.onClick.AddListener(Register);
     }
 
-    private async void Login()
+    private async void Start()
     {
-        string name = userNameInput.text;
         try
         {
-            UserInfo user = await DataAccess.Instance.GetUser(name);
-            Debug.Log("Login Success!");
+            UserInfo info = SaveSystemManager.Instance.LoadUserInfo();
+            UserInfo user = await DataAccess.Instance.GetUser(info.Username, info.Password);
+            SceneManager.LoadScene(1);
+            LoginStateText.text = "Login Success!";
+        } catch
+        {
+            Debug.Log("No data to load.");
+        }
+        
+    }
+
+    public async void Login()
+    {
+        string name = userNameInput.text;
+        string password = passwordInput.text;
+        try
+        {
+            UserInfo user = await DataAccess.Instance.GetUser(name, password);
+            LoginStateText.text = "Login Success!";
+
+            SaveSystemManager.Instance.SaveUserInfo(name, password);
+
+            SceneManager.LoadScene(1);
 
         } catch (Exception e) {
             LoginStateText.text = "Wrong Username/Password or account doesn't exist.";
-            Debug.Log(e);
+            LoginStateText.text = e.ToString();
         }       
     }    
 
     private async void Register()
     {
-        string name = userNameInput.text;        
+        string name = userNameInput.text;
+        string password = passwordInput.text;
         try 
         {
-            UserInfo user = await DataAccess.Instance.GetUser(name);
+            UserInfo user = await DataAccess.Instance.GetUser(name, password);
             LoginStateText.text = "Account already existed!";
 
-        } catch(Exception e) {
-            await DataAccess.Instance.CreateUser(new UserInfo(name, passwordInput.text));
-            Debug.Log("Create Account!");
-        }
+        } catch {
+            try
+            {
+                await DataAccess.Instance.CreateUser(new UserInfo(name, password));
+                SaveSystemManager.Instance.SaveUserInfo(name, password);
+                LoginStateText.text = "Create Account!";
+                SceneManager.LoadScene(1);
+            }
+            catch (Exception e)
+            {
+                LoginStateText.text = e.ToString();
+            }
+        }            
     }    
 }

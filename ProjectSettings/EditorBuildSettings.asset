@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoginScene.unity
+    guid: 1e01ff2e3c88f914ea8921345e112b87
+  - enabled: 1
+    path: Assets/Scenes/CandyCrush.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
     path: Assets/Scenes/CrossyRoad.unity
     guid: 2dcc7c505681c6c4aa6d5f35d9b7c932
   m_configObjects: {}

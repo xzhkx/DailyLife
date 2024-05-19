@@ -1,6 +1,8 @@
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using System;
 
+[Serializable]
 public class UserInfo 
 {
     [BsonId]

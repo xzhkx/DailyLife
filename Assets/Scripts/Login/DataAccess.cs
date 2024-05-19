@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 public class DataAccess : MonoBehaviour
 {
-    private const string connectionString = "mongodb+srv://kamkam:zhiyvu0808@candycrs.ajunidn.mongodb.net/?retryWrites=true&w=majority&appName=CandyCrs";
-    private const string databaseName = "CandyDatabase";
-    private const string userCollection = "userCollection";
+    private string connectionString = "mongodb://kamkam:zhiyvu0808@ac-ltfgj36-shard-00-00.ajunidn.mongodb.net:27017,ac-ltfgj36-shard-00-01.ajunidn.mongodb.net:27017,ac-ltfgj36-shard-00-02.ajunidn.mongodb.net:27017/?ssl=true&replicaSet=atlas-1dpjia-shard-0&authSource=admin&retryWrites=true&w=majority&appName=CandyCrs";
+    private string databaseName = "CandyDatabase";
+    private string userCollection = "userCollection";
 
     public static DataAccess Instance;
 
@@ -37,9 +37,11 @@ public class DataAccess : MonoBehaviour
         return results.ToList();
     }
 
-    public async Task<UserInfo> GetUser(string name)
+    public async Task<UserInfo> GetUser(string name, string password)
     {
-        var filter = Builders<UserInfo>.Filter.Eq(n => n.Username, name);
+        var filter = Builders<UserInfo>.Filter.Eq(n => n.Username, name) &
+            Builders<UserInfo>.Filter.Eq(n => n.Password, password);
+
         var results = await ConnectToMongo<UserInfo>(userCollection).FindAsync(filter);
         return await results.FirstAsync();
     }    
