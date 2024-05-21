@@ -96,7 +96,7 @@ public class SelectedTiles : MonoBehaviour
         {
             for (int y = 1; y <= length; y++)
             {
-                if (GenerateTiles.Instance.tiles[x, y].GetConnectedTiles().Count >= 4)
+                if (GenerateTiles.Instance.tiles[x, y].GetConnectedTiles().Count > 4)
                     return true;
             }
         }                        
