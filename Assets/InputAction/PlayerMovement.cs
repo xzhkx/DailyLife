@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isMove", false);
 
         stepRayUpper.localPosition = new Vector3(stepRayUpper.localPosition.x, stepHeight, stepRayUpper.localPosition.z);
+        transform.rotation = Quaternion.identity;
     }
 
     private void FixedUpdate()
@@ -80,19 +81,19 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 input = playerInputActions.Player.Movement.ReadValue<Vector2>();
 
-        Vector3 inputConvert = new Vector3(input.x, 0, input.y);
+        Vector3 inputConvert = new Vector3(input.x, -0.1f, input.y);
+
+        Vector3 inputConverRotate = new Vector3(input.x, 0f, input.y);
 
         if (input == Vector2.zero)
         {
             animator.SetBool("isMove", false);
-            playerRigidbody.velocity = Vector3.zero;
-
         }
         else
         {
             animator.SetBool("isMove", true);
             playerRigidbody.velocity = inputConvert * runSpeed;
-            Quaternion toRotation = Quaternion.LookRotation(inputConvert, Vector3.up);
+            Quaternion toRotation = Quaternion.LookRotation(inputConverRotate, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation,
                 rotationSpeed);
         }
