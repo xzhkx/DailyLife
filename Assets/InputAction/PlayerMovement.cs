@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private float runSpeed, rotationSpeed;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private LayerMask layerMask;
 
     [Header("Stair Handler")]
     [SerializeField]
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit hitLower;
         if (Physics.Raycast(stepRayLower.position, transform.TransformDirection(Vector3.forward),
-            out hitLower, 0.1f))            
+            out hitLower, 0.1f, layerMask))            
         {
             Debug.Log("Hit");
             RaycastHit hitUpper;
@@ -54,11 +56,11 @@ public class PlayerMovement : MonoBehaviour
 
         RaycastHit hitLower45;
         if(Physics.Raycast(stepRayLower.position, transform.TransformDirection(1.5f, 0, 1), 
-            out hitLower45, 0.1f))
+            out hitLower45, 0.1f, layerMask))
         {
             RaycastHit hitUpper45;
             if(!Physics.Raycast(stepRayUpper.position, transform.TransformDirection(1.5f, 0, 1),
-                out hitUpper45, 0.2f))
+                out hitUpper45, 0.2f, layerMask))
             {
                 playerRigidbody.position -= new Vector3(0, -stepSmooth, 0);
             }
@@ -66,11 +68,11 @@ public class PlayerMovement : MonoBehaviour
 
         RaycastHit hitLowerMinus45;
         if (Physics.Raycast(stepRayLower.position, transform.TransformDirection(1.5f, 0, 1),
-            out hitLowerMinus45, 0.1f))
+            out hitLowerMinus45, 0.1f, layerMask))
         {
             RaycastHit hitUpperMinus45;
             if (!Physics.Raycast(stepRayUpper.position, transform.TransformDirection(1.5f, 0, 1),
-                out hitUpperMinus45, 0.2f))
+                out hitUpperMinus45, 0.2f, layerMask))
             {
                 playerRigidbody.position -= new Vector3(0, -stepSmooth, 0);
             }

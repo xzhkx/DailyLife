@@ -8,13 +8,13 @@ public class PlayerCollideDetect : MonoBehaviour
     {
         if (!collider.CompareTag("Interactable")) return;
 
-        collider.transform.GetChild(0).gameObject.SetActive(true); 
+        collider.GetComponent<IInteractable>().StartInteract();
     }
 
     private void OnTriggerExit(Collider collider)
     {
         if (!collider.CompareTag("Interactable")) return;
 
-        collider.transform.GetChild(0).gameObject.SetActive(false);
+        collider.GetComponent<IInteractable>().EndInteract();
     }
 }
