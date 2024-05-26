@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class InteractOpen : MonoBehaviour, IInteractable
 {
-    [SerializeField] private GameObject buttonInteract;
+    [SerializeField] private GameObject visibleObject;
     private GameObject childCollider;
 
     private void Awake()
-    {
-        buttonInteract.SetActive(false);
+    {        
         childCollider = transform.GetChild(0).gameObject;
     }
 
     public void StartInteract()
     {
-        buttonInteract.SetActive(true);
+        SetActiveButton.Instance.objectToSet = visibleObject;
+        SetActiveButton.Instance.canBeSet = true;
         childCollider.SetActive(true);
     }
 
     public void EndInteract()
     {
+        SetActiveButton.Instance.canBeSet = false;
         childCollider.SetActive(false);
-        buttonInteract.SetActive(false);
     }
 }

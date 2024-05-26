@@ -10,6 +10,7 @@ public class DataAccess : MonoBehaviour
     private string connectionString = "mongodb://kamkam:zhiyvu0808@ac-ltfgj36-shard-00-00.ajunidn.mongodb.net:27017,ac-ltfgj36-shard-00-01.ajunidn.mongodb.net:27017,ac-ltfgj36-shard-00-02.ajunidn.mongodb.net:27017/?ssl=true&replicaSet=atlas-1dpjia-shard-0&authSource=admin&retryWrites=true&w=majority&appName=CandyCrs";
     private string databaseName = "CandyDatabase";
     private string userCollection = "userCollection";
+    private string itemCollection = "itemsCollection";
 
     public static DataAccess Instance;
 
@@ -30,10 +31,25 @@ public class DataAccess : MonoBehaviour
         return userInfos.InsertOneAsync(user);
     }
 
+    public Task AddItem(ItemGM item)
+    {
+        IMongoCollection<ItemGM> itemInfos = ConnectToMongo<ItemGM>(itemCollection);
+        return itemInfos.InsertOneAsync(item);
+    }
+
     public async Task<List<UserInfo>> GetAllUsers()
     {
         IMongoCollection<UserInfo> userInfos = ConnectToMongo<UserInfo>(userCollection);
         var results = await userInfos.FindAsync(c => true);
+        return results.ToList();
+    }
+
+    public async Task<List<ItemGM>> GetAllItems(string name)
+    {
+        var filter = Builders<ItemGM>.Filter.Eq(n => n.userName, name);
+
+        IMongoCollection<ItemGM> itemInfos = ConnectToMongo<ItemGM>(itemCollection);
+        var results = await itemInfos.FindAsync(c => true);
         return results.ToList();
     }
 

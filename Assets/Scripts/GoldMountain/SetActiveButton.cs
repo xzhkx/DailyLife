@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SetActiveButton : MonoBehaviour
 {
-    [SerializeField] private GameObject objectToSet;
+    public static SetActiveButton Instance;
+    public GameObject objectToSet;
+    public bool canBeSet;
 
     private void Awake()
     {
-        objectToSet.SetActive(false);
+        canBeSet = false;
+        Instance = this;
     }
 
     public void SetObject()
     {
+        if (!canBeSet) return;
         if (objectToSet.activeInHierarchy)
         {
             objectToSet.SetActive(false);
