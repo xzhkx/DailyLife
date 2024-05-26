@@ -1,3 +1,4 @@
+using MongoDB.Driver;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,26 +10,23 @@ public class CoinsLoad : MonoBehaviour
     public static CoinsLoad Instance;
 
     [SerializeField] private TMP_Text coinsText;
-    [SerializeField] private Button exitButton;
 
-    private int coinsCount;
-
+    private UserInfo info;
     private void Awake()
     {
-        Instance = this;
-        coinsCount = 0;
-        coinsText.text = coinsCount.ToString();
-        exitButton.onClick.AddListener(SaveCoins);
+        Instance = this;       
     }
 
-    public void SaveCoins()
+    private async void Start()
     {
-
+        info = SaveSystemManager.Instance.LoadUserInfo();
+        UserInfo user = await DataAccess.Instance.GetUser(info.Username, info.Password);
+        coinsText.text = user.Coins.ToString();
     }
 
-    public void AddCoins(int coinAmount)
+    public async void SaveCoins(int coinsToAdd)
     {
-        coinsCount += coinAmount;
-        coinsText.text = coinsCount.ToString();
+        int coins = await DataAccess.Instance.UpdateCoins(info.Username, info.Password, coinsToAdd);
+        coinsText.text = coins.ToString();
     }
 }

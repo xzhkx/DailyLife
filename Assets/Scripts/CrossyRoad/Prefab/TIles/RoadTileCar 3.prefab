@@ -2111,6 +2111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: delivery-flat
       objectReference: {fileID: 0}
+    - target: {fileID: 4421781278098597918, guid: f41b39c3c2a84ff4da0d4943e470c5f6, type: 3}
+      propertyPath: m_TagString
+      value: Car
+      objectReference: {fileID: 0}
     - target: {fileID: 4930929681070068784, guid: f41b39c3c2a84ff4da0d4943e470c5f6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2162,6 +2166,10 @@ PrefabInstance:
     - target: {fileID: 2875883767609782521, guid: b02df5db03a21d04da85a191c5ee0872, type: 3}
       propertyPath: m_Name
       value: taxi
+      objectReference: {fileID: 0}
+    - target: {fileID: 2875883767609782521, guid: b02df5db03a21d04da85a191c5ee0872, type: 3}
+      propertyPath: m_TagString
+      value: Car
       objectReference: {fileID: 0}
     - target: {fileID: 3216381162096241219, guid: b02df5db03a21d04da85a191c5ee0872, type: 3}
       propertyPath: m_RootOrder

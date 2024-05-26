@@ -7,7 +7,7 @@ public class PlayerCollideDetect : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         if (!collider.CompareTag("Interactable")) return;
-
+        
         collider.GetComponent<IInteractable>().StartInteract();
     }
 

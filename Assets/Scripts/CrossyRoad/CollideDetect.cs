@@ -1,25 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollideDetect : MonoBehaviour
 {
-    private Transform parent;
-    private void Awake()
-    {
-        parent = GetComponentInParent<Transform>();
-    }
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Wood")) return;
-
-        
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (!collision.gameObject.CompareTag("Wood")) return;
-
-        
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

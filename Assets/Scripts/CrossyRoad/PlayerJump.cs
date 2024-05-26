@@ -27,15 +27,21 @@ public class PlayerJump : MonoBehaviour
     public void Jump(Vector3 direction)
     {
         if (isGround) return;
+        currentPos = roadParent.transform.position;
         newPos = roadParent.transform.position + (-1) * direction;
-        playerRigidbody.AddForce(Vector3.up * jumpForce);
+        playerRigidbody.AddForce(Vector3.up * jumpForce);       
         StartCoroutine(JumpTime());
     }
 
     IEnumerator JumpTime()
     {
         isGround = true;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.4f);
+        Debug.Log(Mathf.Abs(currentPos.z) - Mathf.Abs(newPos.z));
+        if(Mathf.Abs(currentPos.z) - Mathf.Abs(newPos.z) == -1f)
+        {
+            CoinsLoad.Instance.SaveCoins(5);
+        }      
         isGround = false;
     }   
 }

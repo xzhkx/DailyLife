@@ -4,6 +4,7 @@ using UnityEngine;
 
 using MongoDB.Driver;
 using System.Threading.Tasks;
+using MongoDB.Driver.Core.Authentication;
 
 public class DataAccess : MonoBehaviour
 {
@@ -61,5 +62,21 @@ public class DataAccess : MonoBehaviour
         var results = await ConnectToMongo<UserInfo>(userCollection).FindAsync(filter);
         return await results.FirstAsync();
     }    
+
+    public async Task<int> UpdateCoins(string name, string password, int coins)
+    {
+        var filter = Builders<UserInfo>.Filter.Eq(n => n.Username, name) &
+            Builders<UserInfo>.Filter.Eq(n => n.Password, password);
+        var results = await ConnectToMongo<UserInfo>(userCollection).FindAsync(filter);
+        var user = await results.FirstAsync();
+
+        coins += user.Coins;
+        var update = Builders<UserInfo>.Update.Set(c => c.Coins, coins);
+
+        var updateCoins = ConnectToMongo<UserInfo>(userCollection);
+        updateCoins.UpdateOne(filter, update);
+
+        return coins;
+    }
 }
 

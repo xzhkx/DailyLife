@@ -17,12 +17,16 @@ public class PlayerMovement : MonoBehaviour
     private Transform stepRayLower, stepRayUpper;
     [SerializeField]
     private float stepHeight, stepSmooth;
-    
+
+    public static PlayerMovement Instance;
+    public bool canMove;
     private PlayerInputActions playerInputActions;
     private Rigidbody playerRigidbody;
 
     private void Awake()
-    { 
+    {
+        Instance = this;
+        canMove = true;
         playerRigidbody = GetComponent<Rigidbody>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
@@ -35,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove) return;
         HandlerMovement();
         StepClimb();
     } 

@@ -17,6 +17,11 @@ public class InteractOpen : MonoBehaviour, IInteractable
         SetActiveButton.Instance.objectToSet = visibleObject;
         SetActiveButton.Instance.canBeSet = true;
         childCollider.SetActive(true);
+        if(gameObject.GetComponent<PickUpItem>() != null)
+        {
+            gameObject.GetComponent<PickUpItem>().PickUp();
+            CoinsLoad.Instance.SaveCoins(30);      
+        }
     }
 
     public void EndInteract()

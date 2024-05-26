@@ -20,8 +20,17 @@ public class SetActiveButton : MonoBehaviour
         if (!canBeSet) return;
         if (objectToSet.activeInHierarchy)
         {
+            PlayerMovement.Instance.canMove = true;
             objectToSet.SetActive(false);
+            ItemsDictionary.Instance.UpdateInventory();
         }
-        else objectToSet.SetActive(true);
+        else
+        {
+            if(objectToSet != null && !ItemsDictionary.Instance.ContainItem(objectToSet))
+            {
+                PlayerMovement.Instance.canMove = false;
+                objectToSet.SetActive(true);
+            }       
+        }           
     }
 }

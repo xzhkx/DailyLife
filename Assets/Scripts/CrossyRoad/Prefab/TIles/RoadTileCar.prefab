@@ -2083,6 +2083,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car1
       objectReference: {fileID: 0}
+    - target: {fileID: 7284568090623901984, guid: cda1650cfc9f87f4a96be80d94e110ab, type: 3}
+      propertyPath: m_TagString
+      value: Car
+      objectReference: {fileID: 0}
     - target: {fileID: 7952280218825710490, guid: cda1650cfc9f87f4a96be80d94e110ab, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -2152,6 +2156,10 @@ PrefabInstance:
     - target: {fileID: 2875883767609782521, guid: b02df5db03a21d04da85a191c5ee0872, type: 3}
       propertyPath: m_Name
       value: taxi (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2875883767609782521, guid: b02df5db03a21d04da85a191c5ee0872, type: 3}
+      propertyPath: m_TagString
+      value: Car
       objectReference: {fileID: 0}
     - target: {fileID: 3216381162096241219, guid: b02df5db03a21d04da85a191c5ee0872, type: 3}
       propertyPath: m_RootOrder

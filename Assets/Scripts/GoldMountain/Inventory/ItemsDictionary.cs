@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +12,15 @@ public class ItemsDictionary : MonoBehaviour
     private List<ItemScriptableObject> items;
     [SerializeField]
     private List<GameObject> itemUI, itemGameObjects;
+    [SerializeField]
+    private TMP_Text collectionText;
+    [SerializeField]
+    private int maxItems;
 
     private Dictionary<string, ItemScriptableObject> ItemsList = new Dictionary<string, ItemScriptableObject>();
     private Dictionary<string, GameObject> ItemGameObjectList = new Dictionary<string, GameObject>();
 
-    private  void Awake()
+    private void Awake()
     {
         Instance = this;
 
@@ -41,6 +46,7 @@ public class ItemsDictionary : MonoBehaviour
     {
         UserInfo user = SaveSystemManager.Instance.LoadUserInfo();
         List<ItemGM> itemDatabase = await DataAccess.Instance.GetAllItems(user.Username);
+        collectionText.text = itemDatabase.Count.ToString() + "/" + maxItems.ToString();
 
         for (int i = 0; i < itemDatabase.Count; i++)
         {
@@ -51,5 +57,11 @@ public class ItemsDictionary : MonoBehaviour
             itemUI[i].SetActive(true);
             ItemGameObjectList[itemID].SetActive(false);
         }
+    }
+
+    public bool ContainItem(GameObject item)
+    {
+        if (itemGameObjects.Contains(item)) return true;
+        else return false;
     }
 }
