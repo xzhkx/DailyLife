@@ -24,11 +24,11 @@ public class ItemsDictionary : MonoBehaviour
     {
         Instance = this;
 
-        for(int i = 1; i <= items.Count; i++)
+        for(int i = 0; i < items.Count; i++)
         {
             string itemID = "00" + i.ToString();
-            ItemsList.Add(itemID, items[i - 1]);
-            ItemGameObjectList.Add(itemID, itemGameObjects[i - 1]);
+            ItemsList.Add(itemID, items[i]);
+            ItemGameObjectList.Add(itemID, itemGameObjects[i]);
         }
 
         foreach(GameObject item in itemUI)
@@ -47,6 +47,8 @@ public class ItemsDictionary : MonoBehaviour
         UserInfo user = SaveSystemManager.Instance.LoadUserInfo();
         List<ItemGM> itemDatabase = await DataAccess.Instance.GetAllItems(user.Username);
         collectionText.text = itemDatabase.Count.ToString() + "/" + maxItems.ToString();
+
+        Debug.Log(itemDatabase.Count);
 
         for (int i = 0; i < itemDatabase.Count; i++)
         {

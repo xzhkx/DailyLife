@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a6433bb2c005748b014f5661bc32bb, type: 3}
   m_Name: Bottle
   m_EditorClassIdentifier: 
-  itemID: 002
+  itemID: 001
   itemName: Green Bottle
   Icon: {fileID: 21300000, guid: 280245764a8b2fd41bb4a23bf92aec8f, type: 3}

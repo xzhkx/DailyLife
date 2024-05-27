@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a6433bb2c005748b014f5661bc32bb, type: 3}
   m_Name: Bucket
   m_EditorClassIdentifier: 
-  itemID: 003
+  itemID: 002
   itemName: Bucket
   Icon: {fileID: 21300000, guid: 58236fa023f876d4db538441a4aa6ae6, type: 3}

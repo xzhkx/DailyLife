@@ -21,6 +21,10 @@ public class SetActiveButton : MonoBehaviour
         if (objectToSet.activeInHierarchy)
         {
             PlayerMovement.Instance.canMove = true;
+            if(objectToSet.GetComponentInChildren<PickUpItem>() != null)
+            {
+                objectToSet.GetComponentInChildren<PickUpItem>().PickUp();
+            }           
             objectToSet.SetActive(false);
             ItemsDictionary.Instance.UpdateInventory();
         }
