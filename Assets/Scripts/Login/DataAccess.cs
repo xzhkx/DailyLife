@@ -5,6 +5,7 @@ using UnityEngine;
 using MongoDB.Driver;
 using System.Threading.Tasks;
 using MongoDB.Driver.Core.Authentication;
+using static UnityEditor.Progress;
 
 public class DataAccess : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class DataAccess : MonoBehaviour
     private string databaseName = "CandyDatabase";
     private string userCollection = "userCollection";
     private string itemCollection = "itemsCollection";
+    private string ingredientCollection = "ingredientsCollection";
 
     public static DataAccess Instance;
 
@@ -38,6 +40,12 @@ public class DataAccess : MonoBehaviour
         return itemInfos.InsertOneAsync(item);
     }
 
+    public Task AddIngredients(IngredientInfo ingredient)
+    {
+        IMongoCollection<IngredientInfo> ingredientInfos = ConnectToMongo<IngredientInfo>(ingredientCollection);
+        return ingredientInfos.InsertOneAsync(ingredient);
+    }
+
     public async Task<List<UserInfo>> GetAllUsers()
     {
         IMongoCollection<UserInfo> userInfos = ConnectToMongo<UserInfo>(userCollection);
@@ -50,6 +58,15 @@ public class DataAccess : MonoBehaviour
         var filter = Builders<ItemGM>.Filter.Eq(n => n.userName, name);
 
         IMongoCollection<ItemGM> itemInfos = ConnectToMongo<ItemGM>(itemCollection);
+        var results = await itemInfos.FindAsync(c => true);
+        return results.ToList();
+    }
+
+    public async Task<List<IngredientInfo>> GetAllIngredients(string name)
+    {
+        var filter = Builders<IngredientInfo>.Filter.Eq(n => n.userName, name);
+
+        IMongoCollection<IngredientInfo> itemInfos = ConnectToMongo<IngredientInfo>(ingredientCollection);
         var results = await itemInfos.FindAsync(c => true);
         return results.ToList();
     }

@@ -1,7 +1,8 @@
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using UnityEngine;
 
-public class ItemGM 
+public class IngredientInfo
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
@@ -9,7 +10,7 @@ public class ItemGM
     public string userName;
     public string itemID;
 
-    public ItemGM(string userName, string itemID)
+    public IngredientInfo(string userName, string itemID)
     {
         this.userName = userName;
         this.itemID = itemID;

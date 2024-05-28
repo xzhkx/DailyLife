@@ -25,8 +25,17 @@ public class SetActiveButton : MonoBehaviour
             {
                 objectToSet.GetComponentInChildren<PickUpItem>().PickUp();
             }           
+            else if(objectToSet.GetComponentInChildren<PickUpIngredients>() != null)
+            {
+                objectToSet.GetComponentInChildren<PickUpIngredients>().PickUp();
+            }
+
             objectToSet.SetActive(false);
-            ItemsDictionary.Instance.UpdateInventory();
+            if(ItemsDictionary.Instance != null)
+            {
+                ItemsDictionary.Instance.UpdateInventory();
+            }
+           
         }
         else
         {
