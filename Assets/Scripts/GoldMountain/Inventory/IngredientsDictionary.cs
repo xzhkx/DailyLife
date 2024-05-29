@@ -9,30 +9,34 @@ public class IngredientsDictionary : MonoBehaviour
     public static IngredientsDictionary Instance;
 
     [SerializeField]
-    private List<ItemScriptableObject> items;
+    private List<GameObject> ingredientsPrefab;
     [SerializeField]
-    private List<GameObject> itemUI;
+    private List<ItemScriptableObject> ingredientsSO;
+
+    [SerializeField]
+    private GameObject itemUI, itemUIContent;
     [SerializeField]
     private TMP_Text collectionText;
     [SerializeField]
     private int maxItems;
 
-    private Dictionary<string, ItemScriptableObject> ItemsList = new Dictionary<string, ItemScriptableObject>();
-    private List<IngredientInfo> ingredients;
+    private List<GameObject> itemUIs = new List<GameObject>();
+    private Dictionary<string, ItemScriptableObject> ingredientsList = new Dictionary<string, ItemScriptableObject>();   
 
     private void Awake()
     {
         Instance = this;
-
-        for (int i = 0; i < items.Count; i++)
+        for(int i = 0; i < ingredientsSO.Count; i++)
         {
-            string itemID = "00" + i.ToString();
-            ItemsList.Add(itemID, items[i]);
+            ingredientsList.Add(ingredientsSO[i].itemID, ingredientsSO[i]);
         }
 
-        foreach (GameObject item in itemUI)
+        for(int i = 0; i < maxItems; i++)
         {
+            GameObject item = Instantiate(itemUI);
             item.SetActive(false);
+            item.transform.SetParent(itemUIContent.transform);
+            itemUIs.Add(item);
         }
     }
 
@@ -44,19 +48,13 @@ public class IngredientsDictionary : MonoBehaviour
     public async void UpdateInventory()
     {
         UserInfo user = SaveSystemManager.Instance.LoadUserInfo();
-        List<ItemGM> itemDatabase = await DataAccess.Instance.GetAllItems(user.Username);
-        collectionText.text = itemDatabase.Count.ToString() + "/" + maxItems.ToString();
-
-        Debug.Log(itemDatabase.Count);
-
-        for (int i = 0; i < itemDatabase.Count; i++)
+        List<IngredientInfo> allIngredient = await DataAccess.Instance.GetAllIngredients(user.Username);
+        collectionText.text = allIngredient.Count.ToString();
+        for(int i = 0; i < allIngredient.Count; i++)
         {
-            Debug.Log("!!!");
-            string itemID = itemDatabase[i].itemID;
-            ItemScriptableObject item = ItemsList[itemID];
-            itemUI[i].GetComponent<Image>().sprite = item.Icon;
-            itemUI[i].SetActive(true);
+            string ingredientID = allIngredient[i].itemID;
+            itemUIs[i].GetComponent<Image>().sprite = ingredientsList[ingredientID].Icon;
+            itemUIs[i].SetActive(true);
         }
     }
-
 }

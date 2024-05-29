@@ -39,11 +39,23 @@ public class SetActiveButton : MonoBehaviour
         }
         else
         {
-            if(objectToSet != null && !ItemsDictionary.Instance.ContainItem(objectToSet))
+            try
             {
-                PlayerMovement.Instance.canMove = false;
-                objectToSet.SetActive(true);
-            }       
+                if (objectToSet != null && !ItemsDictionary.Instance.ContainItem(objectToSet))
+                {
+                    PlayerMovement.Instance.canMove = false;
+                    objectToSet.SetActive(true);
+                    return;
+                }
+            } catch
+            {
+                if(objectToSet != null)
+                {
+                    PlayerMovement.Instance.canMove = false;
+                    objectToSet.SetActive(true);
+                }
+            }
+                 
         }           
     }
 }

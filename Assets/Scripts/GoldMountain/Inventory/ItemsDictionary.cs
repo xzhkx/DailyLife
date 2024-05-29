@@ -52,7 +52,6 @@ public class ItemsDictionary : MonoBehaviour
 
         for (int i = 0; i < itemDatabase.Count; i++)
         {
-            Debug.Log("!!!");
             string itemID = itemDatabase[i].itemID;
             ItemScriptableObject item = ItemsList[itemID];
             itemUI[i].GetComponent<Image>().sprite = item.Icon;
