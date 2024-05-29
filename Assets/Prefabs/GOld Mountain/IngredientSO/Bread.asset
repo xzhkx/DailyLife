@@ -15,3 +15,4 @@ MonoBehaviour:
   itemID: 003
   itemName: Bread
   Icon: {fileID: 21300000, guid: 83d423220dea0d6478863f52c1429c6f, type: 3}
+  prefabObj: {fileID: 4914566135000547395, guid: c9888d28a58c6504e9386049e4df6ae2, type: 3}

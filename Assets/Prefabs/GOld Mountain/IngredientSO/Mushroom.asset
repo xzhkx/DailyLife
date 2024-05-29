@@ -15,3 +15,4 @@ MonoBehaviour:
   itemID: 009
   itemName: Mushroom
   Icon: {fileID: 21300000, guid: abaf2484dd77c3e45bf66c18918ecc56, type: 3}
+  prefabObj: {fileID: 1887279232179698094, guid: 042ebe2e9613de1439cbd461f5b8153b, type: 3}

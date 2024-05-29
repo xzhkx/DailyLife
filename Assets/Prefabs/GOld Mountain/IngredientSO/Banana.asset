@@ -15,3 +15,4 @@ MonoBehaviour:
   itemID: 001
   itemName: Banana
   Icon: {fileID: 21300000, guid: d270ef9fdb5df244c89057ed9dae4c2f, type: 3}
+  prefabObj: {fileID: 5327039369113939905, guid: e6938b81c45b1194fa80ea264bd26b3d, type: 3}

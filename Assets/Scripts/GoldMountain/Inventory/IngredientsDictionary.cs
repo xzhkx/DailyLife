@@ -1,3 +1,4 @@
+using Amazon.Runtime.Internal.Transform;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,8 +10,6 @@ public class IngredientsDictionary : MonoBehaviour
     public static IngredientsDictionary Instance;
 
     [SerializeField]
-    private List<GameObject> ingredientsPrefab;
-    [SerializeField]
     private List<ItemScriptableObject> ingredientsSO;
 
     [SerializeField]
@@ -20,7 +19,7 @@ public class IngredientsDictionary : MonoBehaviour
     [SerializeField]
     private int maxItems;
 
-    private List<GameObject> itemUIs = new List<GameObject>();
+    public List<GameObject> itemUIs = new List<GameObject>();
     private Dictionary<string, ItemScriptableObject> ingredientsList = new Dictionary<string, ItemScriptableObject>();   
 
     private void Awake()
@@ -53,6 +52,8 @@ public class IngredientsDictionary : MonoBehaviour
         for(int i = 0; i < allIngredient.Count; i++)
         {
             string ingredientID = allIngredient[i].itemID;
+
+            itemUIs[i].GetComponent<ItemUIInfo>().obj = ingredientsList[ingredientID].prefabObj;
             itemUIs[i].GetComponent<Image>().sprite = ingredientsList[ingredientID].Icon;
             itemUIs[i].SetActive(true);
         }

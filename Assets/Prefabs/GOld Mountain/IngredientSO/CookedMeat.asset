@@ -15,3 +15,4 @@ MonoBehaviour:
   itemID: 008
   itemName: Cooked Meat
   Icon: {fileID: 21300000, guid: 34237063e782a4641a9cfc3bd765a14b, type: 3}
+  prefabObj: {fileID: 4573355259064010089, guid: e3a681739c5183e44b253b4aff2f0e45, type: 3}

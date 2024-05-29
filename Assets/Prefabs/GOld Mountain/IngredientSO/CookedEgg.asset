@@ -15,3 +15,4 @@ MonoBehaviour:
   itemID: 005
   itemName: Cooked Egg
   Icon: {fileID: 21300000, guid: 9884ac7cc95a2aa46a64c7b6940b8cb3, type: 3}
+  prefabObj: {fileID: 4849006989723634689, guid: 9049b33fd45bff44bb14ce6961f6a942, type: 3}

@@ -15,3 +15,4 @@ MonoBehaviour:
   itemID: 000
   itemName: Apple
   Icon: {fileID: 21300000, guid: 2791ab9720d6dcd42830dce6ca0d8a4d, type: 3}
+  prefabObj: {fileID: 2973907723231256007, guid: 5bc47e70b583fa74f8842d7535ea0e67, type: 3}

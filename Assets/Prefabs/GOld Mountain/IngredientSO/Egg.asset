@@ -15,3 +15,4 @@ MonoBehaviour:
   itemID: 004
   itemName: Egg
   Icon: {fileID: 21300000, guid: 619972bd1151eb348a081060bbe84510, type: 3}
+  prefabObj: {fileID: 8754046771449927003, guid: cfe981173c6f2da418702d9c2f96358d, type: 3}
