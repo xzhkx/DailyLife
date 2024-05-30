@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(stepRayLower.position, transform.TransformDirection(Vector3.forward),
             out hitLower, 0.1f, layerMask))            
         {
-            Debug.Log("Hit");
             RaycastHit hitUpper;
             if(!Physics.Raycast(stepRayUpper.position, transform.TransformDirection(Vector3.forward),
                 out hitUpper, 0.2f))

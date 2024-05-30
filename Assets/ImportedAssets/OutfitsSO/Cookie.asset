@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a6433bb2c005748b014f5661bc32bb, type: 3}
+  m_Name: Cookie
+  m_EditorClassIdentifier: 
+  itemID: 001
+  itemName: Cookie Hat
+  Icon: {fileID: 21300000, guid: 982ee21afdcb41d4f99694bad512f06c, type: 3}
+  prefabObj: {fileID: 0}

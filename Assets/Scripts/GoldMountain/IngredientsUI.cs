@@ -26,10 +26,9 @@ public class IngredientsUI : MonoBehaviour
     {
         if (currentSelect != null) return;
 
-        Debug.Log("Confirm");
         GameObject food = Instantiate(lastSelect.GetComponent<ItemUIInfo>().obj);
-
         currentSelect = food;
+
         food.SetActive(true);
         food.transform.position = holdPos.position;
         food.transform.SetParent(holdPos);

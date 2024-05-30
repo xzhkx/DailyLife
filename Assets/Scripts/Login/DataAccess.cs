@@ -11,9 +11,11 @@ public class DataAccess : MonoBehaviour
 {
     private string connectionString = "mongodb://kamkam:zhiyvu0808@ac-ltfgj36-shard-00-00.ajunidn.mongodb.net:27017,ac-ltfgj36-shard-00-01.ajunidn.mongodb.net:27017,ac-ltfgj36-shard-00-02.ajunidn.mongodb.net:27017/?ssl=true&replicaSet=atlas-1dpjia-shard-0&authSource=admin&retryWrites=true&w=majority&appName=CandyCrs";
     private string databaseName = "CandyDatabase";
+
     private string userCollection = "userCollection";
     private string itemCollection = "itemsCollection";
     private string ingredientCollection = "ingredientsCollection";
+    private string outfitCollection = "outfitCollection";
 
     public static DataAccess Instance;
 
@@ -74,13 +76,26 @@ public class DataAccess : MonoBehaviour
         IMongoCollection<IngredientInfo> itemInfos = ConnectToMongo<IngredientInfo>(ingredientCollection);
         var results = await itemInfos.FindAsync(filter);
         return results.ToList();
-    }
-    
+    }   
     public async void DeleteIngredient(string itemID, string name)
     {
         var filter = Builders<IngredientInfo>.Filter.Eq(n => n.itemID, itemID) &
             Builders<IngredientInfo>.Filter.Eq(n => n.userName, name);
         var results = await ConnectToMongo<IngredientInfo>(ingredientCollection).DeleteOneAsync(filter);
+    }
+
+    public Task AddOutfit(ItemGM outfit)
+    {
+        IMongoCollection<ItemGM> itemInfos = ConnectToMongo<ItemGM>(outfitCollection);
+        return itemInfos.InsertOneAsync(outfit);
+    }
+    public async Task<List<ItemGM>> GetAllOutfits(string name)
+    {
+        var filter = Builders<ItemGM>.Filter.Eq(n => n.userName, name);
+
+        IMongoCollection<ItemGM> itemInfos = ConnectToMongo<ItemGM>(outfitCollection);
+        var results = await itemInfos.FindAsync(filter);
+        return results.ToList();
     }
 
     public async Task<int> UpdateCoins(string name, string password, int coins)
