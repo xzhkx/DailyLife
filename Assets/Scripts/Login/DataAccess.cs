@@ -58,7 +58,7 @@ public class DataAccess : MonoBehaviour
         var filter = Builders<ItemGM>.Filter.Eq(n => n.userName, name);
 
         IMongoCollection<ItemGM> itemInfos = ConnectToMongo<ItemGM>(itemCollection);
-        var results = await itemInfos.FindAsync(c => true);
+        var results = await itemInfos.FindAsync(filter);
         return results.ToList();
     }
 
@@ -72,10 +72,16 @@ public class DataAccess : MonoBehaviour
         var filter = Builders<IngredientInfo>.Filter.Eq(n => n.userName, name);
 
         IMongoCollection<IngredientInfo> itemInfos = ConnectToMongo<IngredientInfo>(ingredientCollection);
-        var results = await itemInfos.FindAsync(c => true);
+        var results = await itemInfos.FindAsync(filter);
         return results.ToList();
     }
-    //Remove Ingredients
+    
+    public async void DeleteIngredient(string itemID, string name)
+    {
+        var filter = Builders<IngredientInfo>.Filter.Eq(n => n.itemID, itemID) &
+            Builders<IngredientInfo>.Filter.Eq(n => n.userName, name);
+        var results = await ConnectToMongo<IngredientInfo>(ingredientCollection).DeleteOneAsync(filter);
+    }
 
     public async Task<int> UpdateCoins(string name, string password, int coins)
     {

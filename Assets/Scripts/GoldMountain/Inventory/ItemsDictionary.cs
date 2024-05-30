@@ -45,6 +45,7 @@ public class ItemsDictionary : MonoBehaviour
     public async void UpdateInventory()
     {
         UserInfo user = SaveSystemManager.Instance.LoadUserInfo();
+        Debug.Log(user.Username);
         List<ItemGM> itemDatabase = await DataAccess.Instance.GetAllItems(user.Username);
         collectionText.text = itemDatabase.Count.ToString() + "/" + maxItems.ToString();
 

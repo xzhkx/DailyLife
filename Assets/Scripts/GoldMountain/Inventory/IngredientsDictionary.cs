@@ -55,6 +55,7 @@ public class IngredientsDictionary : MonoBehaviour
             string ingredientID = allIngredient[i].itemID;
 
             itemUIs[i].GetComponent<ItemUIInfo>().obj = ingredientsList[ingredientID].prefabObj;
+            itemUIs[i].GetComponent<ItemUIInfo>().itemID = ingredientsList[ingredientID].itemID;
             itemUIs[i].GetComponent<Image>().sprite = ingredientsList[ingredientID].Icon;
             itemUIs[i].SetActive(true);
         }
