@@ -33,19 +33,14 @@ public class DataAccess : MonoBehaviour
         IMongoCollection<UserInfo> userInfos = ConnectToMongo<UserInfo>(userCollection);
         return userInfos.InsertOneAsync(user);
     }
-
-    public Task AddItem(ItemGM item)
+    public async Task<UserInfo> GetUser(string name, string password)
     {
-        IMongoCollection<ItemGM> itemInfos = ConnectToMongo<ItemGM>(itemCollection);
-        return itemInfos.InsertOneAsync(item);
-    }
+        var filter = Builders<UserInfo>.Filter.Eq(n => n.Username, name) &
+            Builders<UserInfo>.Filter.Eq(n => n.Password, password);
 
-    public Task AddIngredients(IngredientInfo ingredient)
-    {
-        IMongoCollection<IngredientInfo> ingredientInfos = ConnectToMongo<IngredientInfo>(ingredientCollection);
-        return ingredientInfos.InsertOneAsync(ingredient);
+        var results = await ConnectToMongo<UserInfo>(userCollection).FindAsync(filter);
+        return await results.FirstAsync();
     }
-
     public async Task<List<UserInfo>> GetAllUsers()
     {
         IMongoCollection<UserInfo> userInfos = ConnectToMongo<UserInfo>(userCollection);
@@ -53,6 +48,11 @@ public class DataAccess : MonoBehaviour
         return results.ToList();
     }
 
+    public Task AddItem(ItemGM item)
+    {
+        IMongoCollection<ItemGM> itemInfos = ConnectToMongo<ItemGM>(itemCollection);
+        return itemInfos.InsertOneAsync(item);
+    }
     public async Task<List<ItemGM>> GetAllItems(string name)
     {
         var filter = Builders<ItemGM>.Filter.Eq(n => n.userName, name);
@@ -62,6 +62,11 @@ public class DataAccess : MonoBehaviour
         return results.ToList();
     }
 
+    public Task AddIngredients(IngredientInfo ingredient)
+    {
+        IMongoCollection<IngredientInfo> ingredientInfos = ConnectToMongo<IngredientInfo>(ingredientCollection);
+        return ingredientInfos.InsertOneAsync(ingredient);
+    }
     public async Task<List<IngredientInfo>> GetAllIngredients(string name)
     {
         var filter = Builders<IngredientInfo>.Filter.Eq(n => n.userName, name);
@@ -70,15 +75,7 @@ public class DataAccess : MonoBehaviour
         var results = await itemInfos.FindAsync(c => true);
         return results.ToList();
     }
-
-    public async Task<UserInfo> GetUser(string name, string password)
-    {
-        var filter = Builders<UserInfo>.Filter.Eq(n => n.Username, name) &
-            Builders<UserInfo>.Filter.Eq(n => n.Password, password);
-
-        var results = await ConnectToMongo<UserInfo>(userCollection).FindAsync(filter);
-        return await results.FirstAsync();
-    }    
+    //Remove Ingredients
 
     public async Task<int> UpdateCoins(string name, string password, int coins)
     {

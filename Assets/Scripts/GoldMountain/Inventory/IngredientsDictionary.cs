@@ -49,6 +49,7 @@ public class IngredientsDictionary : MonoBehaviour
         UserInfo user = SaveSystemManager.Instance.LoadUserInfo();
         List<IngredientInfo> allIngredient = await DataAccess.Instance.GetAllIngredients(user.Username);
         collectionText.text = allIngredient.Count.ToString();
+
         for(int i = 0; i < allIngredient.Count; i++)
         {
             string ingredientID = allIngredient[i].itemID;
