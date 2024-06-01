@@ -28,17 +28,17 @@ public class ItemsDictionary : MonoBehaviour
         {
             string itemID = "00" + i.ToString();
             ItemsList.Add(itemID, items[i]);
+            if (i >= itemGameObjects.Count) return;
             ItemGameObjectList.Add(itemID, itemGameObjects[i]);
-        }
-
-        foreach(GameObject item in itemUI)
-        {
-            item.SetActive(false);
-        }
+        }    
     }
 
     private void Start()
     {
+        for (int i = 0; i < itemUI.Count; i++)
+        {
+            itemUI[i].SetActive(false);
+        }
         UpdateInventory();
     }
 
@@ -48,14 +48,19 @@ public class ItemsDictionary : MonoBehaviour
         List<ItemGM> itemDatabase = await DataAccess.Instance.GetAllItems(user.Username);
         collectionText.text = itemDatabase.Count.ToString() + "/" + maxItems.ToString();
 
+        Debug.Log(itemDatabase.Count);
+
         for (int i = 0; i < itemDatabase.Count; i++)
         {
+            Debug.Log("???");
             string itemID = itemDatabase[i].itemID;
             ItemScriptableObject item = ItemsList[itemID];
-            itemUI[i].GetComponent<Image>().sprite = item.Icon;
             itemUI[i].SetActive(true);
+            itemUI[i].GetComponent<Image>().sprite = item.Icon;
+
+            if (!ItemGameObjectList.ContainsKey(itemID)) return;
             ItemGameObjectList[itemID].SetActive(false);
-        }
+        }   
     }
 
     public bool ContainItem(GameObject item)

@@ -23,5 +23,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Garden.unity
     guid: 62219fc91f2f6d247baa0360abbeb10e
+  - enabled: 1
+    path: Assets/Scenes/Dungeon.unity
+    guid: b88cf262e2e2f6e4eb290b196ec8a2d4
+  - enabled: 1
+    path: Assets/Scenes/Dungeon_Sub_01.unity
+    guid: 945aa8f9f2800c2489e50df63577e68b
+  - enabled: 1
+    path: Assets/Scenes/Dungeon_Sub_02.unity
+    guid: 680b307263377e346ae1ba2a38720ff7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6a380e7a654aa7d4ab8ee430b7bff7eb, type: 2}

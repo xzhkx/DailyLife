@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float stepHeight, stepSmooth;
 
     public static PlayerMovement Instance;
-    public bool canMove;
+    private bool canMove;
     private PlayerInputActions playerInputActions;
     private Rigidbody playerRigidbody;
 
@@ -103,5 +103,16 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation,
                 rotationSpeed);
         }
+    }
+
+    public void CanBeMove()
+    {
+        canMove = true;
+    }
+
+    public void NoMove()
+    {
+        canMove = false;
+        animator.SetBool("isMove", false);
     }
 }

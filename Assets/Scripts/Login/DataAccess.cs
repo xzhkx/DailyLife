@@ -105,13 +105,20 @@ public class DataAccess : MonoBehaviour
         var results = await ConnectToMongo<UserInfo>(userCollection).FindAsync(filter);
         var user = await results.FirstAsync();
 
-        coins += user.Coins;
-        var update = Builders<UserInfo>.Update.Set(c => c.Coins, coins);
+        int newCoins = coins + user.Coins;
+        if(newCoins < 0)
+        {
+            return user.Coins; 
+        }    
+        else
+        {
+            var update = Builders<UserInfo>.Update.Set(c => c.Coins, newCoins);
 
-        var updateCoins = ConnectToMongo<UserInfo>(userCollection);
-        updateCoins.UpdateOne(filter, update);
+            var updateCoins = ConnectToMongo<UserInfo>(userCollection);
+            updateCoins.UpdateOne(filter, update);
 
-        return coins;
+            return newCoins;
+        }
     }
 }
 

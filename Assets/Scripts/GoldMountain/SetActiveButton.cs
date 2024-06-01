@@ -20,7 +20,7 @@ public class SetActiveButton : MonoBehaviour
         if (!canBeSet) return;
         if (objectToSet.activeInHierarchy)
         {
-            PlayerMovement.Instance.canMove = true;
+            PlayerMovement.Instance.CanBeMove();
             if(objectToSet.GetComponentInChildren<PickUpItem>() != null)
             {
                 objectToSet.GetComponentInChildren<PickUpItem>().PickUp();
@@ -34,8 +34,7 @@ public class SetActiveButton : MonoBehaviour
             if(ItemsDictionary.Instance != null)
             {
                 ItemsDictionary.Instance.UpdateInventory();
-            }
-           
+            }          
         }
         else
         {
@@ -43,7 +42,7 @@ public class SetActiveButton : MonoBehaviour
             {
                 if (objectToSet != null && !ItemsDictionary.Instance.ContainItem(objectToSet))
                 {
-                    PlayerMovement.Instance.canMove = false;
+                    PlayerMovement.Instance.NoMove();
                     objectToSet.SetActive(true);
                     return;
                 }
@@ -51,7 +50,7 @@ public class SetActiveButton : MonoBehaviour
             {
                 if(objectToSet != null)
                 {
-                    PlayerMovement.Instance.canMove = false;
+                    PlayerMovement.Instance.NoMove();
                     objectToSet.SetActive(true);
                 }
             }

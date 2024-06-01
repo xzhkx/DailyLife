@@ -10,6 +10,7 @@ public class CoinsLoad : MonoBehaviour
 {
     public static CoinsLoad Instance;
 
+    private int currentCoins;
     [SerializeField] private TMP_Text coinsText;
 
     private UserInfo info;
@@ -21,8 +22,8 @@ public class CoinsLoad : MonoBehaviour
     private async void Start()
     {
         info = SaveSystemManager.Instance.LoadUserInfo();
-        UserInfo user = await DataAccess.Instance.GetUser(info.Username, info.Password);
-        coinsText.text = user.Coins.ToString();
+        int coins = await GetCoins();
+        coinsText.text = coins.ToString();
     }
 
     public async Task<int> GetCoins()
@@ -35,5 +36,5 @@ public class CoinsLoad : MonoBehaviour
     {
         int coins = await DataAccess.Instance.UpdateCoins(info.Username, info.Password, coinsToAdd);
         coinsText.text = coins.ToString();
-    }
+    }  
 }

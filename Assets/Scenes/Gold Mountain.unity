@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44805706, g: 0.49806565, b: 0.5755241, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: af90bbfe1cb72934b893d24eccec11e4, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: f01f681ca8c12da469dda0c57aeca113, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2400,7 +2400,6 @@ GameObject:
   - component: {fileID: 180475993}
   - component: {fileID: 180475992}
   - component: {fileID: 180475991}
-  - component: {fileID: 180475990}
   - component: {fileID: 180475989}
   m_Layer: 5
   m_Name: Image (19)
@@ -2442,18 +2441,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &180475990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180475987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &180475991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2497,19 +2484,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 180475992}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 180475990}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &180475992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,7 +2535,6 @@ GameObject:
   - component: {fileID: 196023027}
   - component: {fileID: 196023026}
   - component: {fileID: 196023025}
-  - component: {fileID: 2723152035369105933}
   - component: {fileID: 5037941283367593339}
   m_Layer: 5
   m_Name: Image
@@ -2631,19 +2605,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 196023026}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2723152035369105933}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &196023026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2849,7 +2811,6 @@ GameObject:
   - component: {fileID: 215283836}
   - component: {fileID: 215283835}
   - component: {fileID: 215283834}
-  - component: {fileID: 215283833}
   - component: {fileID: 215283832}
   m_Layer: 5
   m_Name: Image (15)
@@ -2891,18 +2852,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &215283833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215283830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &215283834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2946,19 +2895,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 215283835}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 215283833}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &215283835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3347,7 +3284,6 @@ GameObject:
   - component: {fileID: 265429340}
   - component: {fileID: 265429339}
   - component: {fileID: 265429338}
-  - component: {fileID: 265429337}
   - component: {fileID: 265429336}
   m_Layer: 5
   m_Name: Image (3)
@@ -3389,18 +3325,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &265429337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265429334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &265429338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3444,19 +3368,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 265429339}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 265429337}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &265429339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3585,7 +3497,6 @@ GameObject:
   - component: {fileID: 276489477}
   - component: {fileID: 276489478}
   - component: {fileID: 276489479}
-  - component: {fileID: 276489480}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3610,6 +3521,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 602ba8403ed069241a462871ac503103, type: 2}
   - {fileID: 11400000, guid: f0bb1e0ef24ddb14795dc9a7eb15443a, type: 2}
   - {fileID: 11400000, guid: 4f041dd83e8c1b54e8c98040d7f441fb, type: 2}
+  - {fileID: 11400000, guid: e7bb830d3d8b61445883c75b0a720154, type: 2}
+  - {fileID: 11400000, guid: 177b809a6461cb346821bf4ff0521343, type: 2}
+  - {fileID: 11400000, guid: f8995aab044408040a34eddd1be1fdd6, type: 2}
   itemUI:
   - {fileID: 196023023}
   - {fileID: 594949739}
@@ -3716,20 +3630,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60f277f6acfa6ec48a97c828f2711dbc, type: 2}
   - {fileID: 11400000, guid: 429ee3f3ee3af5941b94eb0915227620, type: 2}
   - {fileID: 11400000, guid: 68f2ba1fb109d904aa86add768315c13, type: 2}
---- !u!114 &276489480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276489473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7119e292702b043841eed8ac801419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastOutfit: {fileID: 0}
-  currentOutfit: {fileID: 0}
 --- !u!1001 &291543835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4313,7 +4213,6 @@ GameObject:
   - component: {fileID: 339690024}
   - component: {fileID: 339690023}
   - component: {fileID: 339690022}
-  - component: {fileID: 339690021}
   - component: {fileID: 339690020}
   m_Layer: 5
   m_Name: Image (12)
@@ -4355,18 +4254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &339690021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339690018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &339690022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4410,19 +4297,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 339690023}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 339690021}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &339690023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5614,7 +5489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 117}
+  m_AnchoredPosition: {x: 0, y: 120}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &446996142
@@ -6558,7 +6433,6 @@ GameObject:
   - component: {fileID: 544061486}
   - component: {fileID: 544061485}
   - component: {fileID: 544061484}
-  - component: {fileID: 544061483}
   - component: {fileID: 544061482}
   m_Layer: 5
   m_Name: Image (18)
@@ -6600,18 +6474,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &544061483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544061480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &544061484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6655,19 +6517,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 544061485}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 544061483}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &544061485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6835,7 +6685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: -152}
+  m_AnchoredPosition: {x: 0, y: -120}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &590349642
@@ -6957,7 +6807,6 @@ GameObject:
   - component: {fileID: 594949745}
   - component: {fileID: 594949744}
   - component: {fileID: 594949743}
-  - component: {fileID: 594949742}
   - component: {fileID: 594949741}
   m_Layer: 5
   m_Name: Image (1)
@@ -6999,18 +6848,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &594949742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594949739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &594949743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7054,19 +6891,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 594949744}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 594949742}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &594949744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7117,7 +6942,6 @@ GameObject:
   - component: {fileID: 598589036}
   - component: {fileID: 598589035}
   - component: {fileID: 598589034}
-  - component: {fileID: 598589033}
   - component: {fileID: 598589032}
   m_Layer: 5
   m_Name: Image (9)
@@ -7159,18 +6983,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &598589033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598589030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &598589034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7214,19 +7026,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 598589035}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 598589033}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &598589035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9170,7 +8970,6 @@ GameObject:
   - component: {fileID: 840961011}
   - component: {fileID: 840961010}
   - component: {fileID: 840961009}
-  - component: {fileID: 840961008}
   - component: {fileID: 840961007}
   m_Layer: 5
   m_Name: Image (16)
@@ -9212,18 +9011,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &840961008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840961005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &840961009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9267,19 +9054,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 840961010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 840961008}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &840961010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10469,7 +10244,6 @@ GameObject:
   - component: {fileID: 1007393557}
   - component: {fileID: 1007393556}
   - component: {fileID: 1007393555}
-  - component: {fileID: 1007393554}
   - component: {fileID: 1007393553}
   m_Layer: 5
   m_Name: Image (6)
@@ -10511,18 +10285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1007393554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007393551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1007393555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10566,19 +10328,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1007393556}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1007393554}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1007393556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11368,7 +11118,6 @@ GameObject:
   - component: {fileID: 1177824857}
   - component: {fileID: 1177824856}
   - component: {fileID: 1177824855}
-  - component: {fileID: 1177824854}
   - component: {fileID: 1177824853}
   m_Layer: 5
   m_Name: Image (10)
@@ -11410,18 +11159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1177824854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177824851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1177824855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11465,19 +11202,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1177824856}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1177824854}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1177824856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12132,7 +11857,6 @@ GameObject:
   - component: {fileID: 1261131129}
   - component: {fileID: 1261131128}
   - component: {fileID: 1261131127}
-  - component: {fileID: 1261131126}
   - component: {fileID: 1261131125}
   m_Layer: 5
   m_Name: Image (14)
@@ -12174,18 +11898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1261131126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261131123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1261131127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12229,19 +11941,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1261131128}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1261131126}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1261131128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12486,7 +12186,6 @@ GameObject:
   - component: {fileID: 1320524006}
   - component: {fileID: 1320524005}
   - component: {fileID: 1320524004}
-  - component: {fileID: 1320524003}
   - component: {fileID: 1320524002}
   m_Layer: 5
   m_Name: Image (13)
@@ -12528,18 +12227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1320524003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320524000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1320524004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12583,19 +12270,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1320524005}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1320524003}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1320524005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12646,7 +12321,6 @@ GameObject:
   - component: {fileID: 1321938383}
   - component: {fileID: 1321938382}
   - component: {fileID: 1321938381}
-  - component: {fileID: 1321938380}
   - component: {fileID: 1321938379}
   m_Layer: 5
   m_Name: Image (8)
@@ -12688,18 +12362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1321938380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321938377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1321938381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12743,19 +12405,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1321938382}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1321938380}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1321938382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13300,7 +12950,6 @@ GameObject:
   - component: {fileID: 1375561740}
   - component: {fileID: 1375561739}
   - component: {fileID: 1375561738}
-  - component: {fileID: 1375561737}
   - component: {fileID: 1375561736}
   m_Layer: 5
   m_Name: Image (17)
@@ -13342,18 +12991,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1375561737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375561734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1375561738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13397,19 +13034,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1375561739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1375561737}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1375561739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13815,7 +13440,6 @@ GameObject:
   - component: {fileID: 1424764430}
   - component: {fileID: 1424764429}
   - component: {fileID: 1424764428}
-  - component: {fileID: 1424764427}
   - component: {fileID: 1424764426}
   m_Layer: 5
   m_Name: Image (7)
@@ -13857,18 +13481,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1424764427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424764424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1424764428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13912,19 +13524,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1424764429}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1424764427}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1424764429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15066,7 +14666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 174}
+  m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1554994545
@@ -15530,7 +15130,6 @@ GameObject:
   - component: {fileID: 1574325487}
   - component: {fileID: 1574325486}
   - component: {fileID: 1574325485}
-  - component: {fileID: 1574325484}
   - component: {fileID: 1574325483}
   m_Layer: 5
   m_Name: Image (11)
@@ -15572,18 +15171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1574325484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574325481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1574325485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15627,19 +15214,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1574325486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1574325484}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1574325486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17589,7 +17164,6 @@ GameObject:
   - component: {fileID: 1951294068}
   - component: {fileID: 1951294067}
   - component: {fileID: 1951294066}
-  - component: {fileID: 1951294065}
   - component: {fileID: 1951294064}
   m_Layer: 5
   m_Name: Image (5)
@@ -17631,18 +17205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1951294065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951294062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1951294066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17686,19 +17248,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1951294067}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1951294065}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1951294067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18021,7 +17571,6 @@ GameObject:
   - component: {fileID: 1968439203}
   - component: {fileID: 1968439202}
   - component: {fileID: 1968439201}
-  - component: {fileID: 1968439200}
   - component: {fileID: 1968439199}
   m_Layer: 5
   m_Name: Image (4)
@@ -18063,18 +17612,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1968439200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968439197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1968439201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18118,19 +17655,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1968439202}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1968439200}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1968439202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18377,7 +17902,6 @@ GameObject:
   - component: {fileID: 1980412109}
   - component: {fileID: 1980412108}
   - component: {fileID: 1980412107}
-  - component: {fileID: 1980412106}
   - component: {fileID: 1980412105}
   m_Layer: 5
   m_Name: Image (2)
@@ -18419,18 +17943,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   itemID: 
---- !u!114 &1980412106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980412103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1980412107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18474,19 +17986,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1980412108}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1980412106}
-        m_TargetAssemblyTypeName: SetSelection, Assembly-CSharp
-        m_MethodName: OnSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1980412108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21164,18 +20664,6 @@ Transform:
   m_Father: {fileID: 4869530370743475385}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &2723152035369105933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196023023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae01e8ddd0e17f478de62995b3f5b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2775148083079987088
 GameObject:
   m_ObjectHideFlags: 0
@@ -22358,7 +21846,6 @@ MonoBehaviour:
   stepRayUpper: {fileID: 1130958808}
   stepHeight: 1.12
   stepSmooth: 0.1
-  canMove: 0
 --- !u!114 &5251158399568332295
 MonoBehaviour:
   m_ObjectHideFlags: 0

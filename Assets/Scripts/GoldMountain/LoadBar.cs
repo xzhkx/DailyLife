@@ -41,7 +41,7 @@ public class LoadBar : MonoBehaviour
         barPanel.SetActive(true);
         cookPanel.SetActive(false);
 
-        PlayerMovement.Instance.canMove = true;
+        PlayerMovement.Instance.CanBeMove();
 
         bar.GetComponent<RectTransform>().localScale = new Vector3(0, 0.7f, 1);
         LeanTween.scaleX(bar, 1, loadTime);
@@ -52,7 +52,6 @@ public class LoadBar : MonoBehaviour
     IEnumerator CookingProccess()
     {
         yield return new WaitForSeconds(loadTime);
-        Debug.Log("Finish Cooking!");
         ResetBar();
     }
 
