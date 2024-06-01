@@ -52,11 +52,8 @@ public class ItemsDictionary : MonoBehaviour
         List<ItemGM> itemDatabase = await DataAccess.Instance.GetAllItems(user.Username);
         collectionText.text = itemDatabase.Count.ToString() + "/" + maxItems.ToString();
 
-        Debug.Log(itemDatabase.Count);
-
         for (int i = 0; i < itemDatabase.Count; i++)
         {
-            Debug.Log("???");
             string itemID = itemDatabase[i].itemID;
             ItemScriptableObject item = ItemsList[itemID];
             itemUI[i].SetActive(true);

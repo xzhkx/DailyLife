@@ -25,8 +25,7 @@ public class LoadBarMine : MonoBehaviour, IInteractable
     {
         yield return new WaitForSeconds(mineTime);
         ResetBar();
-        PlayerMovement.Instance.CanBeMove();
-        Debug.Log("Finish");    
+        PlayerMovement.Instance.CanBeMove();  
         parentRock.SetActive(false);
         CoinsLoad.Instance.SaveCoins(coinsToAdd);
     }

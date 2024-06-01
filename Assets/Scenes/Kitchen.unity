@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44805706, g: 0.49806565, b: 0.5755241, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7380,7 +7380,7 @@ MonoBehaviour:
   bar: {fileID: 926360946}
   cookPanel: {fileID: 797040329}
   loadTime: 3
-  cookedCoins: 2500
+  cookedCoins: 3000
   throwCoins: 100
 --- !u!1 &1946182601
 GameObject:
