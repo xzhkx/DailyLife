@@ -15,3 +15,4 @@ MonoBehaviour:
   itemID: 000
   itemName: Pickaxe
   Icon: {fileID: 21300000, guid: 4f400fdf707a0b144b981b1e0bb806bd, type: 3}
+  prefabObj: {fileID: 0}

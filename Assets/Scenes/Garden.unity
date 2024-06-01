@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: af90bbfe1cb72934b893d24eccec11e4, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: f01f681ca8c12da469dda0c57aeca113, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -13327,7 +13327,6 @@ MonoBehaviour:
   stepRayUpper: {fileID: 716009824}
   stepHeight: 1.12
   stepSmooth: 0.1
-  canMove: 0
 --- !u!1 &1885895324
 GameObject:
   m_ObjectHideFlags: 0

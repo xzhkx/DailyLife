@@ -17,20 +17,24 @@ public class ItemsDictionary : MonoBehaviour
     [SerializeField]
     private int maxItems;
 
-    private Dictionary<string, ItemScriptableObject> ItemsList = new Dictionary<string, ItemScriptableObject>();
+    private Dictionary<string, ItemScriptableObject> ItemsList = new Dictionary<string, ItemScriptableObject>(7);
     private Dictionary<string, GameObject> ItemGameObjectList = new Dictionary<string, GameObject>();
 
     private void Awake()
     {
-        Instance = this;
 
-        for(int i = 0; i < items.Count; i++)
+        Debug.Log(items.Count);
+        for (int i = 0; i < items.Count; i++)
         {
             string itemID = "00" + i.ToString();
+            Debug.Log(itemID);
             ItemsList.Add(itemID, items[i]);
+
             if (i >= itemGameObjects.Count) return;
             ItemGameObjectList.Add(itemID, itemGameObjects[i]);
-        }    
+        }
+
+        Instance = this;       
     }
 
     private void Start()

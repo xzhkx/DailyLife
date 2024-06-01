@@ -32,7 +32,6 @@ public class OutfitDictionary : MonoBehaviour
         {
             outfit.SetActive(false);
         }
-
     }
 
     private void Start()
@@ -47,7 +46,6 @@ public class OutfitDictionary : MonoBehaviour
 
         for (int i = 0; i < outfitDatabase.Count; i++)
         {
-            Debug.Log(">>>");
             string outfitID = outfitDatabase[i].itemID;
             ItemScriptableObject outfit = OutfitsList[outfitID];
 
