@@ -25,7 +25,6 @@ public class ItemsDictionary : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             string itemID = "00" + i.ToString();
-            Debug.Log(itemID);
             ItemsList.Add(itemID, items[i]);
 
             if (i >= itemGameObjects.Count) return;
@@ -49,6 +48,17 @@ public class ItemsDictionary : MonoBehaviour
         UserInfo user = SaveSystemManager.Instance.LoadUserInfo();
         List<ItemGM> itemDatabase = await DataAccess.Instance.GetAllItems(user.Username);
         collectionText.text = itemDatabase.Count.ToString() + "/" + maxItems.ToString();
+
+        switch (itemDatabase.Count)
+        {
+            case 1 :
+                AchievementManager.Instance.EarnAchievement("Beginner Collector");
+                break;
+            case 5 :
+                AchievementManager.Instance.EarnAchievement("Advance Collector");
+                break;
+        }
+            
 
         for (int i = 0; i < itemDatabase.Count; i++)
         {

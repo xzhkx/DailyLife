@@ -1,19 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using TMPro;
 using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
 {
+    public static AchievementManager Instance;
+
     [SerializeField] private GameObject achievePrefab, achieveParent, visualParent, visualAchievement;
 
     private Dictionary<string, GameObject> achievementUIs = new Dictionary<string, GameObject>();
     public Dictionary<string, Achievement> achievementCollection = new Dictionary<string, Achievement>();
 
-
     private string username;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -21,40 +26,53 @@ public class AchievementManager : MonoBehaviour
 
         CreateAchievement("Beginner Collector", "Pick up 1 item.", 500);
         CreateAchievement("Advance Collector", "Pick up 5 items.", 1000);
+
+        CreateAchievement("Road to a Farmer", "Pick up 1 ingredient.", 250);
         CreateAchievement("Time for a meal", "Cook 1 ingredient.", 500);
-        CreateAchievement("Fabulous Chef", "Cook 10 ingredients.", 2000);
+        CreateAchievement("Fabulous Collector", "Cook 10 ingredients.", 2000);
+        CreateAchievement("Legendary Collector", "Cook 50 ingredients.", 20000);
+        CreateAchievement("Waster >:(", "Throw away 1 ingredient", 250);
+
         CreateAchievement("Gamer", "Play Match-3 1 time.", 500);
-        CreateAchievement("Gamer...", "Play CrossyRoad 1 time ", 500);
+        CreateAchievement("Gamer...", "Play CrossyRoad 1 time.", 500);
+
         CreateAchievement("Mining Newbie", "Mine 1 crystal.", 500);
-        CreateAchievement("Mining Professor", "Mine 10 crystals.", 2000);
+        CreateAchievement("Mining Junior", "Mine 1 Redstone.", 15000);
+        CreateAchievement("Mining Professor", "Mine 1 Moonstone.", 30000);
        
         visualAchievement.SetActive(false);
     }
 
     public async void EarnAchievement(string title)
     {
-        AchievementInfo achieve = await DataAccess.Instance.GetAchievement(username, title);
-
-        if (!achieve.hasEarned)
+        try
         {
-            await DataAccess.Instance.EarnAchievement(username, title);
-            visualAchievement.SetActive(true);
+            AchievementInfo achieve = await DataAccess.Instance.GetAchievement(username, title);
 
-            SetAchievementInfo(visualParent, visualAchievement, title);
-            UpdateAchievementPanel(title, achievementCollection[title].points);
-            StartCoroutine(HideAchievement(visualAchievement));
-        }
+            if (!achieve.hasEarned)
+            {
+                await DataAccess.Instance.EarnAchievement(username, title);
+                visualAchievement.SetActive(true);
+
+                SetAchievementInfo(visualParent, visualAchievement, title);
+                UpdateAchievementPanel(title, achievementCollection[title].points);
+                StartCoroutine(HideAchievement(visualAchievement));
+            }
+        } catch
+        {
+
+        }       
     }
 
     public IEnumerator HideAchievement(GameObject achievement)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         achievement.SetActive(false);
     }
 
     public async void CreateAchievement(string title, string description, int points)
-    {       
-        GameObject achievement = (GameObject)Instantiate(achievePrefab);
+    {
+        GameObject achievement = Instantiate(achievePrefab);
         achievementUIs.Add(title, achievement);
 
         Achievement newAchievement = new Achievement(achievement, description, points);
@@ -63,12 +81,21 @@ public class AchievementManager : MonoBehaviour
         try
         {
             await DataAccess.Instance.GetAchievement(username, title);
-        } catch
+        }
+        catch
         {
             await DataAccess.Instance.CreateAchievement(new AchievementInfo(username, title));
         }
-
+        
         SetAchievementInfo(achieveParent, achievement, title);
+
+        AchievementInfo info = await DataAccess.Instance.GetAchievement(username, title);
+        if (info.hasEarned)
+        {
+            achievement.transform.SetParent(null);
+            achievement.transform.SetParent(achieveParent.transform);
+            achievement.transform.GetChild(3).GetComponent<TMP_Text>().text = "Claimed.";
+        }
     }
 
     private void UpdateAchievementPanel(string title, int points)

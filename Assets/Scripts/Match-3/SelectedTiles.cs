@@ -40,6 +40,7 @@ public class SelectedTiles : MonoBehaviour
 
         if(selectedTiles.Count == 2)
         {
+            AchievementManager.Instance.EarnAchievement("Gamer");
             isDoneSelect = false;
             Tile tile1 = selectedTiles[0];
             Tile tile2 = selectedTiles[1];
@@ -98,7 +99,7 @@ public class SelectedTiles : MonoBehaviour
             {
                 if (GenerateTiles.Instance.tiles[x, y].GetConnectedTiles().Count > 4)
                 {
-                    CoinsLoad.Instance.SaveCoins(10);
+                    CoinsLoad.Instance.SaveCoins(100);
                     return true;
                 }                   
             }

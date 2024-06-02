@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractOpen : MonoBehaviour, IInteractable
@@ -13,7 +11,7 @@ public class InteractOpen : MonoBehaviour, IInteractable
         {
             childCollider = transform.GetChild(0).gameObject;
         }
-        catch { Debug.Log("No child outlines."); }            
+        catch {  }            
     }
 
     public void StartInteract()

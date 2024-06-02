@@ -50,6 +50,14 @@ public class IngredientsDictionary : MonoBehaviour
         List<IngredientInfo> allIngredient = await DataAccess.Instance.GetAllIngredients(user.Username);
         collectionText.text = allIngredient.Count.ToString();
 
+        if(allIngredient.Count >= 10 && allIngredient.Count < 50)
+        {
+            AchievementManager.Instance.EarnAchievement("Fabulous Collector");
+        } else if(allIngredient.Count >= 50)
+        {
+            AchievementManager.Instance.EarnAchievement("Legendary Collector");
+        }
+
         for(int i = 0; i < allIngredient.Count; i++)
         {
             string ingredientID = allIngredient[i].itemID;

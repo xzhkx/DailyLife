@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickUpIngredients : MonoBehaviour
@@ -11,5 +9,6 @@ public class PickUpIngredients : MonoBehaviour
         string username = SaveSystemManager.Instance.LoadUserInfo().Username;
         IngredientInfo ingredient = new IngredientInfo(username, ingredientSO.itemID);
         await DataAccess.Instance.AddIngredients(ingredient);
+        AchievementManager.Instance.EarnAchievement("Road to a Farmer");
     }    
 }

@@ -24,6 +24,7 @@ public class LoadBar : MonoBehaviour
             (IngredientsUI.Instance.lastSelect.GetComponent<ItemUIInfo>().itemID, username);
         IngredientsDictionary.Instance.UpdateInventory();
 
+        AchievementManager.Instance.EarnAchievement("Waster >:(");
         CoinsLoad.Instance.SaveCoins(throwCoins);
     }
 
@@ -53,6 +54,7 @@ public class LoadBar : MonoBehaviour
     {
         yield return new WaitForSeconds(loadTime);
         ResetBar();
+        AchievementManager.Instance.EarnAchievement("Time for a meal");
     }
 
     private void ResetBar()

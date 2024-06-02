@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -99,6 +98,7 @@ public class DataAccess : MonoBehaviour
         var results = await itemInfos.FindAsync(filter);
         return results.ToList();
     }
+
     public async Task<int> UpdateCoins(string name, string password, int coins)
     {
         var filter = Builders<UserInfo>.Filter.Eq(n => n.Username, name) &

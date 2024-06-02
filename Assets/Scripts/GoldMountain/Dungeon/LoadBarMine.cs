@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LoadBarMine : MonoBehaviour, IInteractable
@@ -8,7 +7,6 @@ public class LoadBarMine : MonoBehaviour, IInteractable
     [SerializeField] private float mineTime;
     [SerializeField] private int coinsToAdd;
     [SerializeField] private ItemScriptableObject item;
-
 
     private void Awake()
     {
@@ -28,6 +26,16 @@ public class LoadBarMine : MonoBehaviour, IInteractable
         PlayerMovement.Instance.CanBeMove();  
         parentRock.SetActive(false);
         CoinsLoad.Instance.SaveCoins(coinsToAdd);
+        AchievementManager.Instance.EarnAchievement("Mining Newbie");
+        if(EarnJuniorMine.Instance != null)
+        {
+            EarnJuniorMine.Instance.Earn();
+            Debug.Log("Earn Junior");
+        }
+        if(EarnProfessorMine.Instance != null)
+        {
+            EarnProfessorMine.Instance.Earn();
+        }
     }
 
     private void ResetBar()

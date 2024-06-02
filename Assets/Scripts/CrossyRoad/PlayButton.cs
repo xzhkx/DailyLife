@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayButton : MonoBehaviour
@@ -13,6 +11,7 @@ public class PlayButton : MonoBehaviour
 
     public void PlayStart()
     {
+        AchievementManager.Instance.EarnAchievement("Gamer...");
         jumpDetector.SetActive(true);
         gameObject.SetActive(false);
     }    
