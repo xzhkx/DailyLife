@@ -21,9 +21,7 @@ public class ItemsDictionary : MonoBehaviour
     private Dictionary<string, GameObject> ItemGameObjectList = new Dictionary<string, GameObject>();
 
     private void Awake()
-    {
-
-        Debug.Log(items.Count);
+    { 
         for (int i = 0; i < items.Count; i++)
         {
             string itemID = "00" + i.ToString();

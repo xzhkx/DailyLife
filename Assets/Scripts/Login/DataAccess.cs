@@ -13,6 +13,8 @@ public class DataAccess : MonoBehaviour
     private string databaseName = "CandyDatabase";
 
     private string userCollection = "userCollection";
+    private string achievementCollection = "achievementCollection";
+
     private string itemCollection = "itemsCollection";
     private string ingredientCollection = "ingredientsCollection";
     private string outfitCollection = "outfitCollection";
@@ -97,7 +99,6 @@ public class DataAccess : MonoBehaviour
         var results = await itemInfos.FindAsync(filter);
         return results.ToList();
     }
-
     public async Task<int> UpdateCoins(string name, string password, int coins)
     {
         var filter = Builders<UserInfo>.Filter.Eq(n => n.Username, name) &
@@ -120,5 +121,38 @@ public class DataAccess : MonoBehaviour
             return newCoins;
         }
     }
+
+    public Task CreateAchievement(AchievementInfo achievement)
+    {
+        IMongoCollection<AchievementInfo> achievemnentInfos = ConnectToMongo<AchievementInfo>(achievementCollection);
+        return achievemnentInfos.InsertOneAsync(achievement);
+    }    
+    public async Task<AchievementInfo> GetAchievement(string name, string title)
+    {
+        var filter = Builders<AchievementInfo>.Filter.Eq(n => n.userName, name) &
+            Builders<AchievementInfo>.Filter.Eq(t => t.title, title);
+
+        var results = await ConnectToMongo<AchievementInfo>(achievementCollection).FindAsync(filter);
+        return await results.FirstAsync();
+    }
+    public async Task<List<AchievementInfo>> GetAllAchievement(string name)
+    {
+        var filter = Builders<AchievementInfo>.Filter.Eq(n => n.userName, name);
+
+        IMongoCollection<AchievementInfo> achievemnentInfos = ConnectToMongo<AchievementInfo>(achievementCollection);
+        var results = await achievemnentInfos.FindAsync(filter);
+        return results.ToList();
+    }
+    public async Task EarnAchievement(string name, string title)
+    {
+        var filter = Builders<AchievementInfo>.Filter.Eq(n => n.userName, name) &
+            Builders<AchievementInfo>.Filter.Eq(t => t.title, title);
+        var results = await ConnectToMongo<AchievementInfo>(achievementCollection).FindAsync(filter);
+        var achieve = results.FirstAsync();
+
+        var update = Builders<AchievementInfo>.Update.Set(h => h.hasEarned, true);
+        var updateBool = ConnectToMongo<AchievementInfo>(achievementCollection);
+        updateBool.UpdateOne(filter, update);
+    }    
 }
 
