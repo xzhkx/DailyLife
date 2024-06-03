@@ -5,7 +5,7 @@ public class InteractOpen : MonoBehaviour, IInteractable
     [SerializeField] private GameObject visibleObject;
     private GameObject childCollider;
 
-    private void Awake()
+    private void Start()
     {
         try
         {
@@ -24,6 +24,7 @@ public class InteractOpen : MonoBehaviour, IInteractable
 
     public void EndInteract()
     {
+        SetActiveButton.Instance.objectToSet = null;
         SetActiveButton.Instance.canBeSet = false;
         if (childCollider == null) return;
         childCollider.SetActive(false);
