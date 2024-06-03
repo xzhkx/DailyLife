@@ -35,11 +35,13 @@ public class SelectedTiles : MonoBehaviour
 
         if(!selectedTiles.Contains(tile) && selectedTiles.Count < 2)
         {
+            SoundManager.Instance.PlaySound(SoundType.SELECTTILE, 0.5f);
             selectedTiles.Add(tile);
         }    
 
         if(selectedTiles.Count == 2)
         {
+            SoundManager.Instance.PlaySound(SoundType.SELECTTILE, 0.5f);
             AchievementManager.Instance.EarnAchievement("Gamer");
             isDoneSelect = false;
             Tile tile1 = selectedTiles[0];
@@ -69,7 +71,6 @@ public class SelectedTiles : MonoBehaviour
             {
                 tile1.GetComponent<Image>().sprite = tile1.itemInfo.sprite;
                 tile2.GetComponent<Image>().sprite = tile2.itemInfo.sprite;
-                Debug.Log("Pop!");
                 StartCoroutine(Pop());
             } else
             {
@@ -98,8 +99,7 @@ public class SelectedTiles : MonoBehaviour
             for (int y = 1; y <= length; y++)
             {
                 if (GenerateTiles.Instance.tiles[x, y].GetConnectedTiles().Count > 4)
-                {
-                    CoinsLoad.Instance.SaveCoins(100);
+                {                    
                     return true;
                 }                   
             }
@@ -114,6 +114,8 @@ public class SelectedTiles : MonoBehaviour
         {
             for(int y = 1; y <= length; y++)
             {
+                SoundManager.Instance.PlaySound(SoundType.CLICK, 0.3f);
+
                 Tile tile = GenerateTiles.Instance.tiles[x, y];
                 List<Tile> connectedTiles = tile.GetConnectedTiles();
 

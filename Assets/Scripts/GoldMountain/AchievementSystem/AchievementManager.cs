@@ -29,8 +29,8 @@ public class AchievementManager : MonoBehaviour
 
         CreateAchievement("Road to a Farmer", "Pick up 1 ingredient.", 250);
         CreateAchievement("Time for a meal", "Cook 1 ingredient.", 500);
-        CreateAchievement("Fabulous Collector", "Cook 10 ingredients.", 2000);
-        CreateAchievement("Legendary Collector", "Cook 50 ingredients.", 20000);
+        CreateAchievement("Fabulous Collector", "Collect 10 ingredients.", 2000);
+        CreateAchievement("Legendary Collector", "Collect 50 ingredients.", 20000);
         CreateAchievement("Waster >:(", "Throw away 1 ingredient", 250);
 
         CreateAchievement("Gamer", "Play Match-3 1 time.", 500);
@@ -51,6 +51,7 @@ public class AchievementManager : MonoBehaviour
 
             if (!achieve.hasEarned)
             {
+                SoundManager.Instance.PlaySound(SoundType.CLAIM);
                 await DataAccess.Instance.EarnAchievement(username, title);
                 visualAchievement.SetActive(true);
 

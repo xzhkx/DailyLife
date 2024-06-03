@@ -12,6 +12,7 @@ public class BuyOutfitButton : MonoBehaviour
         int coins = await CoinsLoad.Instance.GetCoins();
         if(coins - outfitPrice >= 0)
         {
+            SoundManager.Instance.PlaySound(SoundType.CLAIM);
             string name = SaveSystemManager.Instance.LoadUserInfo().Username;
             ItemGM outfitItem = new ItemGM(name, outfit.itemID);
             await DataAccess.Instance.AddOutfit(outfitItem);

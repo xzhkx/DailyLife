@@ -26,6 +26,8 @@ public class IngredientsUI : MonoBehaviour
     {
         if (currentSelect != null) return;
 
+        SoundManager.Instance.PlaySound(SoundType.CLICK);
+
         GameObject food = Instantiate(lastSelect.GetComponent<ItemUIInfo>().obj);
         currentSelect = food;
 

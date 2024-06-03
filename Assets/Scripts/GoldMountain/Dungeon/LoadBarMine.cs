@@ -21,6 +21,8 @@ public class LoadBarMine : MonoBehaviour, IInteractable
 
     IEnumerator MiningProccess()
     {
+        SoundManager.Instance.PlaySound(SoundType.MINING);
+
         yield return new WaitForSeconds(mineTime);
         ResetBar();
         PlayerMovement.Instance.CanBeMove();  

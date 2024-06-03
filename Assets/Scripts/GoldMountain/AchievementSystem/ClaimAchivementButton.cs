@@ -17,6 +17,8 @@ public class ClaimAchivementButton : MonoBehaviour
 
     private void Claim()
     {
+        SoundManager.Instance.PlaySound(SoundType.CLAIM);
+
         coinsText.text = "Claimed.";
         CoinsLoad.Instance.SaveCoins(coins);
         gameObject.SetActive(false);

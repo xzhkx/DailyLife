@@ -35,7 +35,7 @@ public class ItemsDictionary : MonoBehaviour
     }
 
     private void Start()
-    {
+    {        
         for (int i = 0; i < itemUI.Count; i++)
         {
             itemUI[i].SetActive(false);
@@ -59,7 +59,6 @@ public class ItemsDictionary : MonoBehaviour
                 break;
         }
             
-
         for (int i = 0; i < itemDatabase.Count; i++)
         {
             string itemID = itemDatabase[i].itemID;

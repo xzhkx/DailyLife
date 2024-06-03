@@ -4,7 +4,6 @@ using UnityEngine;
 using MongoDB.Driver;
 using System.Threading.Tasks;
 using MongoDB.Driver.Core.Authentication;
-using static UnityEditor.Progress;
 
 public class DataAccess : MonoBehaviour
 {
@@ -113,6 +112,7 @@ public class DataAccess : MonoBehaviour
         }    
         else
         {
+            SoundManager.Instance.PlaySound(SoundType.ADDCOIN);
             var update = Builders<UserInfo>.Update.Set(c => c.Coins, newCoins);
 
             var updateCoins = ConnectToMongo<UserInfo>(userCollection);

@@ -6,6 +6,7 @@ public class UseOutfit : MonoBehaviour
 
     public void Use()
     {
+        SoundManager.Instance.PlaySound(SoundType.CLICK);
         if (ClosetHandler.Instance.lastOutfit == null && ClosetHandler.Instance.currentOutfit == null)
         {
             ClosetHandler.Instance.lastOutfit = outfit;

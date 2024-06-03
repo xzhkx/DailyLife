@@ -43,6 +43,7 @@ public class GenerateTiles : MonoBehaviour
 
     private void Reset()
     {
+        SoundManager.Instance.PlaySound(SoundType.CLICK, 0.7f);
         StartCoroutine(Pop());
     }
 
@@ -55,6 +56,7 @@ public class GenerateTiles : MonoBehaviour
         {
             for (int y = 1; y <= length; y++)
             {
+                CoinsLoad.Instance.SaveCoins(100);
                 Tile currentTile = tiles[x, y];
                 deflateSequence.Join(currentTile.GetComponent<RectTransform>()
                         .DOScale(Vector3.zero, 0.3f));

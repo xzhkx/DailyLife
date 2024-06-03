@@ -41,6 +41,7 @@ public class LoginUIManager : MonoBehaviour
 
     public async void Login()
     {
+        SoundManager.Instance.PlaySound(SoundType.CLICK);
         string name = userNameInput.text;
         string password = passwordInput.text;
         try
@@ -52,14 +53,14 @@ public class LoginUIManager : MonoBehaviour
 
             SceneManager.LoadScene(1);
 
-        } catch (Exception e) {
+        } catch {
             LoginStateText.text = "Wrong Username/Password or account doesn't exist.";
-            LoginStateText.text = e.ToString();
         }       
     }    
 
     private async void Register()
     {
+        SoundManager.Instance.PlaySound(SoundType.CLICK);
         string name = userNameInput.text;
         string password = passwordInput.text;
         try 
@@ -75,10 +76,7 @@ public class LoginUIManager : MonoBehaviour
                 LoginStateText.text = "Create Account!";
                 SceneManager.LoadScene(1);
             }
-            catch (Exception e)
-            {
-                LoginStateText.text = e.ToString();
-            }
+            catch { }
         }            
     }    
 }

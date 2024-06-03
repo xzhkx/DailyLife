@@ -20,6 +20,7 @@ public class SetActiveButton : MonoBehaviour
         if (!canBeSet) return;
         if (objectToSet.activeInHierarchy)
         {
+            SoundManager.Instance.PlaySound(SoundType.CLICK);
             PlayerMovement.Instance.CanBeMove();
             if(objectToSet.GetComponentInChildren<PickUpItem>() != null)
             {
@@ -42,6 +43,7 @@ public class SetActiveButton : MonoBehaviour
             {
                 if (objectToSet != null && !ItemsDictionary.Instance.ContainItem(objectToSet))
                 {
+                    SoundManager.Instance.PlaySound(SoundType.CLICK);
                     PlayerMovement.Instance.NoMove();
                     objectToSet.SetActive(true);
                     return;
@@ -50,6 +52,7 @@ public class SetActiveButton : MonoBehaviour
             {
                 if(objectToSet != null)
                 {
+                    SoundManager.Instance.PlaySound(SoundType.CLICK);
                     PlayerMovement.Instance.NoMove();
                     objectToSet.SetActive(true);
                 }

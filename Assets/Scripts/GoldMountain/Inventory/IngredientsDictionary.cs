@@ -42,6 +42,7 @@ public class IngredientsDictionary : MonoBehaviour
     private void Start()
     {
         UpdateInventory();
+        SoundManager.Instance.PlaySound(SoundType.KITCHENBGM);
     }
 
     public async void UpdateInventory()

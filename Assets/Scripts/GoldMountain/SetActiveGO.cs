@@ -11,7 +11,8 @@ public class SetActiveGO : MonoBehaviour
 
     public void SetActive()
     {
-        if(objToSet.activeInHierarchy)
+        SoundManager.Instance.PlaySound(SoundType.CLICK);
+        if (objToSet.activeInHierarchy)
         {
             objToSet.SetActive(false);
         } else objToSet.SetActive(true);
