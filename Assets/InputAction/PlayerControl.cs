@@ -30,7 +30,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""PrimaryContact"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""513f6e3f-a357-4e6d-b6b3-803b6f0707ac"",
+                    ""id"": ""02edc24a-a17e-47ca-8b78-86bef6d3adda"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press"",
@@ -39,7 +39,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""PrimaryPosition"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""d9ed321a-1ec3-470e-ae4c-1e5351cf767a"",
+                    ""id"": ""d2070862-f61c-4f47-a111-e036ae1db127"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -49,22 +49,44 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""a18aed51-c6d3-43b2-a116-64fa8f75072d"",
+                    ""id"": ""c2022627-bbe3-41b7-baee-4c57915ab83a"",
                     ""path"": ""<Touchscreen>/primaryTouch/press"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""TouchAnd"",
                     ""action"": ""PrimaryContact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""367fbdfa-f364-4374-ac86-5181d463535d"",
+                    ""id"": ""e5f51fce-1e22-4954-a767-b2e0276bcb94"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse"",
+                    ""action"": ""PrimaryContact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""229e401a-f3e1-4597-acaf-887f5dde82cb"",
                     ""path"": ""<Touchscreen>/primaryTouch/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""TouchAnd"",
+                    ""action"": ""PrimaryPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""726b367c-3390-4caa-af7e-aa46402fcc91"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse"",
                     ""action"": ""PrimaryPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -72,7 +94,30 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Mouse"",
+            ""bindingGroup"": ""Mouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""TouchAnd"",
+            ""bindingGroup"": ""TouchAnd"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Touchscreen>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Touch
         m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
@@ -174,6 +219,24 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         }
     }
     public TouchActions @Touch => new TouchActions(this);
+    private int m_MouseSchemeIndex = -1;
+    public InputControlScheme MouseScheme
+    {
+        get
+        {
+            if (m_MouseSchemeIndex == -1) m_MouseSchemeIndex = asset.FindControlSchemeIndex("Mouse");
+            return asset.controlSchemes[m_MouseSchemeIndex];
+        }
+    }
+    private int m_TouchAndSchemeIndex = -1;
+    public InputControlScheme TouchAndScheme
+    {
+        get
+        {
+            if (m_TouchAndSchemeIndex == -1) m_TouchAndSchemeIndex = asset.FindControlSchemeIndex("TouchAnd");
+            return asset.controlSchemes[m_TouchAndSchemeIndex];
+        }
+    }
     public interface ITouchActions
     {
         void OnPrimaryContact(InputAction.CallbackContext context);
