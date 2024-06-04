@@ -21,12 +21,9 @@ public class GenerateTiles : MonoBehaviour
 
     public Tile[,] tiles;
 
-    [SerializeField] private Button resetButton;
-
     private void Awake()
     {
         Instance = this;
-        resetButton.onClick.AddListener(Reset);
         tiles = new Tile[width+1, length+1];
         Generate();
     }
@@ -41,22 +38,22 @@ public class GenerateTiles : MonoBehaviour
         return length;
     }
 
-    private void Reset()
+    public void Reset()
     {
-        SoundManager.Instance.PlaySound(SoundType.CLICK, 0.7f);
-        StartCoroutine(Pop());
+        StartCoroutine(Poping());
     }
 
-    IEnumerator Pop()
+    IEnumerator Poping()
     {
+        
         var deflateSequence = DOTween.Sequence();
         Sequence inflateSequence = DOTween.Sequence();
 
         for (int x = 1; x <= width; x++)
         {
+
             for (int y = 1; y <= length; y++)
-            {
-                CoinsLoad.Instance.SaveCoins(100);
+            {               
                 Tile currentTile = tiles[x, y];
                 deflateSequence.Join(currentTile.GetComponent<RectTransform>()
                         .DOScale(Vector3.zero, 0.3f));
@@ -70,7 +67,7 @@ public class GenerateTiles : MonoBehaviour
             }                       
         }
         yield return deflateSequence.Play().WaitForCompletion();
-        yield return inflateSequence.Play().WaitForCompletion();
+        yield return inflateSequence.Play().WaitForCompletion();       
     }
 
     private void Generate()

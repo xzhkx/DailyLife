@@ -11,7 +11,6 @@ public class SelectedTiles : MonoBehaviour
     public static SelectedTiles Instance;
 
     private List<Tile> selectedTiles = new List<Tile>();
-    private List<Tile> neighborTiles = new List<Tile>();
     
     private bool isDoneSelect, isDonePop;
     private int width, length;
@@ -109,18 +108,19 @@ public class SelectedTiles : MonoBehaviour
 
     IEnumerator Pop()
     {
+        int coins = 0;
+        SoundManager.Instance.PlaySound(SoundType.CLICK, 0.3f);
         isDonePop = false;
         for (int x = 1; x <= width; x++)
         {
             for(int y = 1; y <= length; y++)
-            {
-                SoundManager.Instance.PlaySound(SoundType.CLICK, 0.3f);
-
+            {            
                 Tile tile = GenerateTiles.Instance.tiles[x, y];
                 List<Tile> connectedTiles = tile.GetConnectedTiles();
 
                 if (connectedTiles.Count < 3) continue;
 
+                coins += 100;
                 var deflateSequence = DOTween.Sequence();
                 foreach (Tile connectedTile in connectedTiles)
                 {
@@ -144,6 +144,7 @@ public class SelectedTiles : MonoBehaviour
             }    
         }
         isDonePop = true;
+        CoinsLoad.Instance.SaveCoins(coins);
     }    
 
     private bool IsNeighbour(Tile tile1, Tile tile2)

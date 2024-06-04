@@ -35,6 +35,7 @@ public class IngredientsDictionary : MonoBehaviour
             GameObject item = Instantiate(itemUI);
             item.SetActive(false);
             item.transform.SetParent(itemUIContent.transform);
+            item.transform.localScale = Vector3.one;
             itemUIs.Add(item);
         }
     }
